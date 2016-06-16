@@ -12,27 +12,27 @@ ENTITY create_food IS
           -- Guarda no máximo 255
 END create_food;
 
-ARCHITECTURE Behavior of create_food is 
+ARCHITECTURE Behavior of create_food is
 	SIGNAL rand_num : INTEGER := 0;
 
 BEGIN
 
 	PROCESS(eaten)
 		variable seed1, seed2: positive;               -- seed values for random generator
-		variable rand: real;   -- random real-number value in range 0 to 1.0  
+		variable rand: real;   -- random real-number value in range 0 to 1.0
 		variable range_of_rand : real := 99.0;    -- the range of random values created will be 0 to +1000.
 		variable index : integer := M*N;
 	BEGIN
 		IF (eaten = '1') THEN
 			WHILE (game_map(index) = '1' and index = N*M) LOOP
 				uniform(seed1, seed2, rand);   -- generate random number
-				index := to_unsigned(rand*range_of_rand);  -- rescale to 0..1000, convert integer part 
+				index := to_unsigned(rand*range_of_rand);  -- rescale to 0..1000, convert integer part
 			END LOOP;
 			-- game_map(index) = '1';
-		END IF:
+		END IF;
 		rand_num <= index;
 	END PROCESS;
 
 	new_food <= std_logic_vector(to_unsigned(rand_num, new_food'LENGTH))
-	
-end behavior;
+
+end Behavior;

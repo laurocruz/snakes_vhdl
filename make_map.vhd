@@ -27,17 +27,18 @@ END make_map;
 ARCHITECTURE Behavior OF make_mape IS
 	TYPE table IS array(0 to N-1, 0 to M-1) OF STD_LOGIC;
 	SIGNAL table : game_map;
-	
+
 	SIGNAL snake : INTEGER RANGE 0 to N*M;
 
 BEGIN
 
-	PROCESS (clock, snake_turn, food_pos, snake_size) 
+	PROCESS (clock, snake_turn, food_pos, snake_size)
 	BEGIN
-	
-	IF (clock'EVENT and clock = '1') THEN
-		
-	
+
+        IF (clock'EVENT and clock = '1') THEN
+
+        END IF;
+
 	END PROCESS;
 
 END Behavior;
