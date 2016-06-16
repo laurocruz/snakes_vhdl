@@ -1,11 +1,31 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 
--- divisor do clock para o jogo
 ENTITY gclock IS
-    -- Periodo em segundos do clock
-    GENERIC (T : INTEGER := 1);
+    -- Frequencia de 1Hz
     -- clock do hardware
-    PORT (hclock : IN STD_LOGIC;
-          clock : OUT STD_LOGIC);
-END gclock;
+	PORT (CLOCK_27   : IN STD_LOGIC ;
+		  reset      : IN STD_LOGIC ;
+		  clock_out  : OUT STD_LOGIC) ;
+END gclock ;
+
+architecture Behavioral of gclock is
+    signal temporal: STD_LOGIC;
+    signal counter : integer range 0 to 13499999 := 0;
+begin
+    frequency_divider: process (reset, CLOCK_27) begin
+        if (reset = '1') then
+            temporal <= '0';
+            counter <= 0;
+        elsif rising_edge(CLOCK_27) then
+            if (counter = 13499999) then
+                temporal <= NOT(temporal);
+                counter <= 0;
+            else
+                counter <= counter + 1;
+            end if;
+        end if;
+    end process;
+    
+    clock_out <= temporal;
+end Behavioral;
