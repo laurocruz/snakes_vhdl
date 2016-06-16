@@ -1,0 +1,47 @@
+Descrição dos módulos do Projeto Snake de MC613
+
+Entrada de Dados (teclado)
+    Usaremos poucos botões do teclado. Lançando mão da interface disponibilizada
+    no site para uso do protocolo SP2, que torna nossa tarefa muito mais simples,
+    precisamos de 2 botões para controlar a direção da serpente (girar esquerda ou
+    direita) um botão para pausar o jogo e talvez um para reiniciar o codigo.
+
+Contador (gclock)
+    Será feito de maneira semelhante ao contador usado alguns labs atrás, que funciona
+    a partir de um divisor de clock, tornando possível que o clock de um sinal por termino
+    de ciclo para o resto do programa, que faz com que o estado mude, ou seja, a serpente
+    ande, cresça, o contador de pontos mude, etc...
+
+Gerador de posição aleatóia (create_food)
+    Componente que irá gerar uma posição x e uma posição y entre 0 e o tamanho máximo possível
+    da tela, para colocar a próxima posição da comida. A verificação para não gerar comida nas
+    posições que a serpente está naquele momento também é importante.
+
+Definição de Pixels que a serpente ocupará (make_map)
+    Recebendo de entrada as posições anteriores da serpente, um bit de sinal dizendo se comeu
+    ou não e o sinal da direção que foi pressionada acertamos-a para aparecer de maneira no 
+    próximo ciclo do clock. É necessário tomar cuidado, pois a serpente tem que continuar 
+    seguindo o seu caminho, apagando os pixels da tela que já passou e onde vai passar 
+    agora, de acordo com a direção.
+
+Mapa de Bits (game_map)
+    Basicamente, uma matriz do tamanho da tela com o número 1 se aquela posição estiver branca
+    e 0 se a posição estiver apagada. Recebe como entradas a matriz do ciclo anterior de clock
+    e as posições que a cobra estará nesse ciclo, geradas pelo componente descrito anteriormente.
+
+Verificador se comeu ou não (check_food)
+    Recebe como entrada a posição que a comida está e a posição da "cabeça" da cobra a cada ciclo
+    de clock. Se essas forem iguais, manda sinal para o "construtor" da serpente e também para o 
+    gerador de comida em posição aleatória, já que ele deve gerar um ponto em algum outro lugar
+    no momento em que a antiga já foi devorada. Também manda sinal para o contador da pontuação.
+
+Contador de Pontuação (size_counter)
+    Recebe como entrada um sinal de controle dizendo se a cobra se alimentou. Se isso acontecer, 
+    aumenta o contador. Caso contrário, continua com a pontuação do ciclo anterior. A saída é 
+    referente a pontuação atual.
+
+Saída (Monitor)
+    A partir da interface que usamos em laboratórios anteriores, projetaremos os bits definidos
+    por todos os componentes anteriores no monitor.
+
+
