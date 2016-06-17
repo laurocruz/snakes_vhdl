@@ -6,18 +6,30 @@ USE ieee.numeric_std;
 ENTITY size_counter IS
 -- DImensões do mapa
     GENERIC (N : INTEGER := 10;
-             M : INTEGER := 10);
-    PORT (eaten      : IN STD_LOGIC;
-          snake_size : BUFFER  INTEGER RANGE 0 TO N*M);
+             M : INTEGER := 10;
+             INITIAL_SIZE : INTEGER := 5);
+    PORT (snake_head : IN INTEGER RANGE 0 TO N*M-1;
+          food_pos   : IN INTEGER RANGE 0 TO N*M-1;
+          snake_size : OUT  INTEGER RANGE 0 TO N*M;
+          eaten      : OUT  STD_LOGIC);
 END size_counter;
 
 ARCHITECTURE Behavior OF size_counter IS
+    SIGNAL size  : INTEGER RANGE 0 TO N*M := INITIAL_SIZE;
+    SIGNAL eatens : STD_LOGIC := '0';
 
 BEGIN
-	PROCESS(eaten)
-		IF (eaten'EVENT and eaten = 1) THEN
-			snake_size <= snake_size + 1;
+
+    eatens <= '1' WHEN food_pos = snake_head ELSE '0';
+
+	PROCESS(eatens)
+		IF (eatens'EVENT and eatens = 1) THEN
+			size <= size + 1;
 		END IF;
 	END PROCESS;
+
+    snake_size <= size;
+
+    eaten <= eatens;
 
 END Behavior;

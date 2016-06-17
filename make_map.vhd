@@ -5,7 +5,7 @@ USE ieee.std_logic_1164.all;
 ENTITY make_map IS
     -- DImensões do mapa
     GENERIC (N : INTEGER := 10;
-             M : INTEGER := 10
+             M : INTEGER := 10;
              INITIAL_SIZE : INTEGER := 5);
           -- clock do jogo
     PORT (clock      : IN STD_LOGIC;
