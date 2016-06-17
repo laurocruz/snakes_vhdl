@@ -7,8 +7,9 @@ ENTITY create_food IS
     GENERIC (N : INTEGER := 10;
              M : INTEGER := 10);
     PORT (eaten : IN STD_LOGIC;
-          game_map : IN STD_LOGIC_VECTOR(N*M DOWNTO 0)
-	      new_food : OUT STD_LOGIC_VECTOR(7 DOWNTO 0));
+          snake_body : IN array (0 to N*M-1) OF INTEGER RANGE 0 TO N*M-1;
+          snake_size : IN INTEGER RANGE 0 to N*M;
+	      new_food : OUT INTEGER RANGE 0 TO N*M-1);
           -- Guarda no máximo 255
 END create_food;
 
@@ -22,17 +23,32 @@ BEGIN
 		variable rand: real;   -- random real-number value in range 0 to 1.0
 		variable range_of_rand : real := 99.0;    -- the range of random values created will be 0 to +1000.
 		variable index : integer := M*N;
+        variable conflict : integer := 1;
+        variable getout : integer := 1;
 	BEGIN
-		IF (eaten = '1') THEN
-			WHILE (game_map(index) = '1' and index = N*M) LOOP
+		IF (eaten'EVENT and eaten = '1') THEN
+			WHILE (conflict = 1 or index = N*M) LOOP
+                conflict := 1;
+                getout := 1;
 				uniform(seed1, seed2, rand);   -- generate random number
 				index := to_unsigned(rand*range_of_rand);  -- rescale to 0..1000, convert integer part
+
+                FOR I IN 0 to snake_size-1 LOOP
+                    IF (snake_body(i) = index) THEN
+                        getout := 0;
+                    END IF;
+                END LOOP;
+
+                IF (getout = 1) THEN
+                    conflict := 0;
+                END IF;
+
 			END LOOP;
 			-- game_map(index) = '1';
 		END IF;
 		rand_num <= index;
 	END PROCESS;
 
-	new_food <= std_logic_vector(to_unsigned(rand_num, new_food'LENGTH))
+	new_food <= rand_num;
 
 end Behavior;

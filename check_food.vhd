@@ -4,9 +4,9 @@ USE ieee.std_logic_1164.all;
 -- gera o sinal de quando a comida e comida pela cobra
 ENTITY check_food IS
           -- Posicao da comida no mapa
-    PORT (food_pos   : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+    PORT (food_pos   : IN INTEGER;
           -- Posicao da cabeca da cobra no mapa
-          snake_head : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+          snake_head : IN INTEGER;
           -- Bit informando se a comida foi ou não comida
           eaten      : OUT STD_LOGIC);
 END check_food;

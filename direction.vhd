@@ -1,23 +1,24 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 
--- define direção para qual a cobra deve virar
+-- define direï¿½ï¿½o para qual a cobra deve virar
 ENTITY direction IS
           -- tecla pressionada no teclado
-    PORT (key : IN STD_LOGIC(5 DOWNTO 0);
+    PORT (key : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
           -- Lado para o qual a cobra deve virar
-          way : OUT STD_LOGIC(1 DOWNTO 0));
+          way : OUT STD_LOGIC);
 END direction;
 
 ARCHITECTURE Behavior OF direction IS
 BEGIN
-	PROCESS(key)
+	PROCESS(key(0), key(1))
 	BEGIN
-		CASE key IS
-			WHEN "xxxxxx" => way <= "00";
-			WHEN "xxxxxx" => way <= "01";
-			WHEN "xxxxxx" => way <= "10";
-			WHEN "xxxxxx" => way <= "11";
-		END CASE;
+        IF (key(0)'EVENT and key(0) = '1') THEN
+            way <= '0';
+        END IF;
+
+        IF (key(1)'EVENT and key(1) = '1') THEN
+            way <= '1';
+        END IF;
 	END PROCESS;
 END Behavior;
