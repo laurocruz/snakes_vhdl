@@ -6,9 +6,13 @@ ENTITY make_map IS
     -- DImensões do mapa
     GENERIC (N : INTEGER := 10;
              M : INTEGER := 10;
-             INITIAL_SIZE : INTEGER := 5);
+             INITIAL_SIZE : INTEGER := 2);
           -- clock do jogo
     PORT (clock      : IN STD_LOGIC;
+
+          -- reseta o jogo
+          reset      : IN STD_LOGIC;
+
           -- posicao para a qual a cobra deve virar
           -- snake_turn(0) = 1 : horario
           -- snake_turn(1) = 1 : anti horario
@@ -44,9 +48,19 @@ BEGIN
 
     snake_body <= snake;
 
-	PROCESS (clock, snake_turn, snake_size)
+	PROCESS (clock, snake_turn, snake_size, reset)
         VARIABLE DIF : INTEGER RANGE 0 TO M;
 	BEGIN
+
+        IF (reset'EVENT and reset = '1') THEN
+            dir <= "11";
+            oldsize <= INITIAL_SIZE;
+
+            FOR i in 0 to INITIAL_SIZE-1 LOOP
+                snake(i) <= (N/2) + (i+M/2)*M
+            END LOOP;
+
+        END IF;
 
         IF (clock'EVENT and clock = '1') THEN
             FOR i IN 0 TO snake_size-2 LOOP
