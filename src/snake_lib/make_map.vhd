@@ -1,6 +1,9 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 
+LIBRARY snake_lib;
+USE snake_lib.snake_pack.all;
+
 -- controlador do mapa do jogo
 ENTITY make_map IS
     -- DImensões do mapa
@@ -22,9 +25,13 @@ ENTITY make_map IS
           snake_size : IN INTEGER RANGE 0 TO N*M;
 
           -- posicao da cabeca da cobra
-          snake_head : OUT INTEGER RANGE 0 TO N*M-1);
+          snake_head : OUT INTEGER RANGE 0 TO N*M-1;
 
-          snake_body : OUT array (0 to N*M-1) OF INTEGER RANGE 0 TO N*M-1;
+          snake_body : OUT int_array;
+          
+          dir        : OUT STD_LOGIC_VECTOR(1 DOWNTO 0));
+          
+          --gmap : OUT STD_LOGIC_VECTOR(0 TO N*M-1));
 END make_map;
 
 ARCHITECTURE Behavior OF make_map IS
@@ -32,14 +39,14 @@ ARCHITECTURE Behavior OF make_map IS
     --TYPE snake_body IS array (0 to N*M-1) OF INTEGER RANGE 0 TO N*M-1;
     --SIGNAL snake : snake_body;
 
-    SIGNAL snake : array (0 to N*M-1) OF INTEGER RANGE 0 TO N*M-1;
+    SIGNAL snake : int_array;
 
     -- direcao para onde a cobra esta se movendo
     -- 11 : cima
     -- 00 : baixo
     -- 10 : esquerda
     -- 01 : direita
-    SIGNAL dir : STD_LOGIC_VECTOR(1 DOWNTO 0) := "11";
+    SIGNAL dir_s : STD_LOGIC_VECTOR(1 DOWNTO 0) := "11";
 
     SIGNAL oldsize : INTEGER RANGE 0 TO N*M := INITIAL_SIZE;
 
@@ -47,69 +54,89 @@ BEGIN
     snake_head <= snake(0);
 
     snake_body <= snake;
+    
+    dir <= dir_s;
 
 	PROCESS (clock, snake_turn, snake_size, reset)
         VARIABLE DIF : INTEGER RANGE 0 TO M;
+        VARIABLE j : INTEGER RANGE 0 TO N*M;
+        VARIABLE index : INTEGER RANGE 0 TO N*M;
+        --VARIABLE map_s : STD_LOGIC_VECTOR(0 TO N*M-1);
 	BEGIN
-
-        IF (reset'EVENT and reset = '1') THEN
-            dir <= "11";
+            
+        IF (reset = '1') THEN
+            dir_s <= "11";
             oldsize <= INITIAL_SIZE;
 
             FOR i in 0 to INITIAL_SIZE-1 LOOP
-                snake(i) <= (N/2) + (i+M/2)*M
+                snake(i) <= (N/2) + (i+M/2)*M;
             END LOOP;
+            
+            FOR i in INITIAL_SIZE to N*M-1 LOOP
+				snake(i) <= -1;
+			END LOOP;
 
-        END IF;
+        -- horario
+        ELSIF (snake_turn(0) = '1') THEN
+            IF (dir_s = "00") THEN
+                dir_s <= "10";
+            ELSIF (dir_s = "01") THEN
+                dir_s <= "00";
+            ELSIF (dir_s = "10") THEN
+                dir_s <= "11";
+            ELSE
+                dir_s <= "01";
+            END IF;
 
-        IF (clock'EVENT and clock = '1') THEN
-            FOR i IN 0 TO snake_size-2 LOOP
-                snake(i+1) <= snake(i);
-            END LOOP;
+        -- anti-horario
+        ELSIF (snake_turn(1) = '1') THEN
+            IF (dir_s = "00") THEN
+                dir_s <= "01";
+            ELSIF (dir_s = "01") THEN
+                dir_s <= "11";
+            ELSIF (dir_s = "10") THEN
+                dir_s <= "00";
+            ELSE
+                dir_s <= "10";
+            END IF;
 
-            IF (dir = "00") THEN
+        ELSIF (snake_size > oldsize) THEN
+            DIF := snake(oldsize-1) - snake(oldsize-2);
+            snake(snake_size-1) <= snake(oldsize-1) + DIF;
+            oldsize <= snake_size;
+            
+		ELSIF (clock'EVENT and clock = '1') THEN
+        
+			j := 0;
+			WHILE (j+1 < M*N and not(snake(j+1) = -1)) LOOP
+				snake(j+1) <= snake(j);
+				j := j + 1;
+			END LOOP;
+			
+            --FOR i IN 0 TO snake_size-2 LOOP
+            --    snake(i+1) <= snake(i);
+            --END LOOP;
+
+            IF (dir_s = "00") THEN
                 snake(0) <= snake(0) + M;
-            ELSIF (dir = "01") THEN
+            ELSIF (dir_s = "01") THEN
                 snake(0) <= snake(0) + 1;
-            ELSIF (dir = "10") THEN
+            ELSIF (dir_s = "10") THEN
                 snake(0) <= snake(0) - 1;
             ELSE
                 snake(0) <= snake(0) - M;
             END IF;
-        END IF;
-
-        -- horario
-        IF (snake_turn(0)'EVENT and snake_turn(0) = '1') THEN
-            IF (dir = "00") THEN
-                dir <= "10";
-            ELSIF (dir = "01") THEN
-                dir <= "00";
-            ELSIF (dir = "10") THEN
-                dir <= "11";
-            ELSE
-                dir <= "01";
-            END IF;
-        END IF;
-
-        -- anti-horario
-        IF (snake_turn(1)'EVENT and snake_turn(1) = '1') THEN
-            IF (dir = "00") THEN
-                dir <= "01";
-            ELSIF (dir = "01") THEN
-                dir <= "11";
-            ELSIF (dir = "10") THEN
-                dir <= "00";
-            ELSE
-                dir <= "10";
-            END IF;
-        END IF;
-
-        IF (snake_size > oldsize) THEN
-            DIF := snake(oldsize-1) - snake(oldsize-2);
-            snake(snake_size-1) <= snake(oldsize-1) + DIF;
-            oldsize <= snake_size;
-        END IF;
-
+        
+			--map_s := (OTHERS => '0');
+			
+			--j := 0;
+			--WHILE (j < M*N and not(snake(j) = -1)) LOOP
+			--	index := snake(j);
+			--	map_s(index) := '1';
+			--	j := j + 1;
+			--END LOOP;
+		END IF;
+		--gmap <= map_s;
 	END PROCESS;
 
 END Behavior;

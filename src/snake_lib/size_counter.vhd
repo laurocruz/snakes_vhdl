@@ -2,6 +2,9 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.all;
 USE ieee.numeric_std;
 
+LIBRARY snake_lib;
+USE snake_lib.snake_pack.all;
+
 -- tamanho da cobra
 ENTITY size_counter IS
 -- DImensões do mapa
@@ -24,10 +27,10 @@ BEGIN
     eatens <= '1' WHEN food_pos = snake_head ELSE '0';
 
 	PROCESS(eatens,reset)
-        IF (reset'EVENT and reset = '1') THEN
-            eatens <= '0';
+	BEGIN
+        IF (reset = '1') THEN
             size <= INITIAL_SIZE;
-		ELSIF (eatens'EVENT and eatens = 1) THEN
+		ELSIF (eatens'EVENT and eatens = '1') THEN
 			size <= size + 1;
 		END IF;
 	END PROCESS;
