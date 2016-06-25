@@ -1,5 +1,5 @@
 Analysis & Synthesis report for demo_size_counter
-Fri Jun 24 15:24:57 2016
+Sat Jun 25 19:17:47 2016
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,12 +13,14 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Inverted Register Statistics
- 10. Parameter Settings for User Entity Instance: Top-level Entity: |demo_size_counter
- 11. Parameter Settings for User Entity Instance: size_counter:size_counter1
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |demo_size_counter
+ 12. Parameter Settings for User Entity Instance: size_counter:size_counter1
+ 13. Port Connectivity Checks: "size_counter:size_counter1"
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -44,16 +46,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun 24 15:24:57 2016           ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun 25 19:17:47 2016           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; demo_size_counter                               ;
 ; Top-level Entity Name              ; demo_size_counter                               ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 11                                              ;
-;     Total combinational functions  ; 11                                              ;
-;     Dedicated logic registers      ; 7                                               ;
-; Total registers                    ; 7                                               ;
-; Total pins                         ; 21                                              ;
+; Total logic elements               ; 0                                               ;
+;     Total combinational functions  ; 0                                               ;
+;     Dedicated logic registers      ; 0                                               ;
+; Total registers                    ; 0                                               ;
+; Total pins                         ; 16                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -157,56 +159,76 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                               ;
-+-----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path  ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                       ; Library ;
-+-----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
-; ../src/snake_lib/size_counter.vhd ; yes             ; User VHDL File  ; /home/laurocruz/Desktop/snakes_vhdl-master/src/snake_lib/size_counter.vhd          ;         ;
-; ../src/snake_lib/snake_pack.vhd   ; yes             ; User VHDL File  ; /home/laurocruz/Desktop/snakes_vhdl-master/src/snake_lib/snake_pack.vhd            ;         ;
-; demo_size_counter.vhd             ; yes             ; User VHDL File  ; /home/laurocruz/Desktop/snakes_vhdl-master/demo_size_counter/demo_size_counter.vhd ;         ;
-+-----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++-----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path  ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                        ; Library ;
++-----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
+; ../src/snake_lib/size_counter.vhd ; yes             ; User VHDL File  ; /home/laurocruz/Documents/MC613/snakes_vhdl/src/snake_lib/size_counter.vhd          ;         ;
+; ../src/snake_lib/snake_pack.vhd   ; yes             ; User VHDL File  ; /home/laurocruz/Documents/MC613/snakes_vhdl/src/snake_lib/snake_pack.vhd            ;         ;
+; demo_size_counter.vhd             ; yes             ; User VHDL File  ; /home/laurocruz/Documents/MC613/snakes_vhdl/demo_size_counter/demo_size_counter.vhd ;         ;
++-----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                     ;
-+---------------------------------------------+-----------------------------------+
-; Resource                                    ; Usage                             ;
-+---------------------------------------------+-----------------------------------+
-; Estimated Total logic elements              ; 11                                ;
-;                                             ;                                   ;
-; Total combinational functions               ; 11                                ;
-; Logic element usage by number of LUT inputs ;                                   ;
-;     -- 4 input functions                    ; 3                                 ;
-;     -- 3 input functions                    ; 2                                 ;
-;     -- <=2 input functions                  ; 6                                 ;
-;                                             ;                                   ;
-; Logic elements by mode                      ;                                   ;
-;     -- normal mode                          ; 6                                 ;
-;     -- arithmetic mode                      ; 5                                 ;
-;                                             ;                                   ;
-; Total registers                             ; 7                                 ;
-;     -- Dedicated logic registers            ; 7                                 ;
-;     -- I/O registers                        ; 0                                 ;
-;                                             ;                                   ;
-; I/O pins                                    ; 21                                ;
-; Embedded Multiplier 9-bit elements          ; 0                                 ;
-; Maximum fan-out node                        ; size_counter:size_counter1|Equal0 ;
-; Maximum fan-out                             ; 8                                 ;
-; Total fan-out                               ; 57                                ;
-; Average fan-out                             ; 1.46                              ;
-+---------------------------------------------+-----------------------------------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 16    ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
++---------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                        ;
-+---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------+--------------+
-; Compilation Hierarchy Node      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                           ; Library Name ;
-+---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------+--------------+
-; |demo_size_counter              ; 11 (0)            ; 7 (0)        ; 0           ; 0            ; 0       ; 0         ; 21   ; 0            ; |demo_size_counter                            ; work         ;
-;    |size_counter:size_counter1| ; 11 (11)           ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |demo_size_counter|size_counter:size_counter1 ; work         ;
-+---------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |demo_size_counter         ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 16   ; 0            ; |demo_size_counter  ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                           ;
++---------------------------------------+--------------------------------------+
+; Register name                         ; Reason for Removal                   ;
++---------------------------------------+--------------------------------------+
+; size_counter:size_counter1|size[2..6] ; Stuck at GND due to stuck port clock ;
+; size_counter:size_counter1|size[1]    ; Stuck at VCC due to stuck port clock ;
+; size_counter:size_counter1|size[0]    ; Stuck at GND due to stuck port clock ;
+; Total Number of Removed Registers = 7 ;                                      ;
++---------------------------------------+--------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                           ;
++------------------------------------+-------------------------+----------------------------------------+
+; Register name                      ; Reason for Removal      ; Registers Removed due to This Register ;
++------------------------------------+-------------------------+----------------------------------------+
+; size_counter:size_counter1|size[6] ; Stuck at GND            ; size_counter:size_counter1|size[2]     ;
+;                                    ; due to stuck port clock ;                                        ;
+; size_counter:size_counter1|size[5] ; Stuck at GND            ; size_counter:size_counter1|size[3]     ;
+;                                    ; due to stuck port clock ;                                        ;
+; size_counter:size_counter1|size[1] ; Stuck at VCC            ; size_counter:size_counter1|size[0]     ;
+;                                    ; due to stuck port clock ;                                        ;
++------------------------------------+-------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -214,24 +236,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 7     ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 7     ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; size_counter:size_counter1|size[1]     ; 2       ;
-; Total number of inverted registers = 1 ;         ;
-+----------------------------------------+---------+
 
 
 +-----------------------------------------------------------------------------------+
@@ -239,8 +251,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+-------+----------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                     ;
 +----------------+-------+----------------------------------------------------------+
-; N              ; 8     ; Signed Integer                                           ;
-; M              ; 8     ; Signed Integer                                           ;
+; N              ; 10    ; Signed Integer                                           ;
+; M              ; 10    ; Signed Integer                                           ;
 ; INITIAL_SIZE   ; 2     ; Signed Integer                                           ;
 +----------------+-------+----------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
@@ -251,11 +263,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+------------------------------------------------+
 ; Parameter Name ; Value ; Type                                           ;
 +----------------+-------+------------------------------------------------+
-; n              ; 8     ; Signed Integer                                 ;
-; m              ; 8     ; Signed Integer                                 ;
+; n              ; 10    ; Signed Integer                                 ;
+; m              ; 10    ; Signed Integer                                 ;
 ; initial_size   ; 2     ; Signed Integer                                 ;
 +----------------+-------+------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Port Connectivity Checks: "size_counter:size_counter1" ;
++------------------+-------+----------+------------------+
+; Port             ; Type  ; Severity ; Details          ;
++------------------+-------+----------+------------------+
+; food_pos[8..7]   ; Input ; Info     ; Stuck at GND     ;
+; snake_head[8..5] ; Input ; Info     ; Stuck at VCC     ;
+; snake_head[3..2] ; Input ; Info     ; Stuck at VCC     ;
+; snake_head[1..0] ; Input ; Info     ; Stuck at GND     ;
+; snake_head[4]    ; Input ; Info     ; Stuck at GND     ;
++------------------+-------+----------+------------------+
 
 
 +-------------------------------+
@@ -273,28 +298,46 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Jun 24 15:24:56 2016
+    Info: Processing started: Sat Jun 25 19:17:46 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off demo_size_counter -c demo_size_counter
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 2 design units, including 1 entities, in source file /home/laurocruz/Desktop/snakes_vhdl-master/src/snake_lib/size_counter.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file /home/laurocruz/Documents/MC613/snakes_vhdl/src/snake_lib/size_counter.vhd
     Info (12022): Found design unit 1: size_counter-Behavior
     Info (12023): Found entity 1: size_counter
-Info (12021): Found 1 design units, including 0 entities, in source file /home/laurocruz/Desktop/snakes_vhdl-master/src/snake_lib/snake_pack.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /home/laurocruz/Documents/MC613/snakes_vhdl/src/snake_lib/snake_pack.vhd
     Info (12022): Found design unit 1: snake_pack
 Info (12021): Found 2 design units, including 1 entities, in source file demo_size_counter.vhd
     Info (12022): Found design unit 1: demo_size_counter-Behavior
     Info (12023): Found entity 1: demo_size_counter
 Info (12127): Elaborating entity "demo_size_counter" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at demo_size_counter.vhd(21): used implicit default value for signal "snake_body" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Info (12128): Elaborating entity "size_counter" for hierarchy "size_counter:size_counter1"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "snake_size[0]" is stuck at GND
+    Warning (13410): Pin "snake_size[1]" is stuck at VCC
+    Warning (13410): Pin "snake_size[2]" is stuck at GND
+    Warning (13410): Pin "snake_size[3]" is stuck at GND
+    Warning (13410): Pin "snake_size[4]" is stuck at GND
+    Warning (13410): Pin "snake_size[5]" is stuck at GND
+    Warning (13410): Pin "snake_size[6]" is stuck at GND
+    Warning (13410): Pin "eaten" is stuck at GND
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 32 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 13 input pins
+Warning (21074): Design contains 8 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "reset"
+    Warning (15610): No output dependent on input pin "food_pos[0]"
+    Warning (15610): No output dependent on input pin "food_pos[1]"
+    Warning (15610): No output dependent on input pin "food_pos[2]"
+    Warning (15610): No output dependent on input pin "food_pos[3]"
+    Warning (15610): No output dependent on input pin "food_pos[4]"
+    Warning (15610): No output dependent on input pin "food_pos[5]"
+    Warning (15610): No output dependent on input pin "food_pos[6]"
+Info (21057): Implemented 16 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 8 input pins
     Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 11 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 644 megabytes
-    Info: Processing ended: Fri Jun 24 15:24:57 2016
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 20 warnings
+    Info: Peak virtual memory: 617 megabytes
+    Info: Processing ended: Sat Jun 25 19:17:47 2016
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

@@ -4,6 +4,7 @@ USE ieee.math_real.all;
 
 PACKAGE snake_pack IS
 
+	--TYPE int_s IS INTEGER RANGE -20 TO 255;
 	TYPE int_array IS array (0 to 127) OF INTEGER RANGE -20 TO 255;
 
 	COMPONENT conv_7seg IS
@@ -33,48 +34,47 @@ PACKAGE snake_pack IS
 
 
 	COMPONENT make_map IS
-		-- DImensões do mapa
-		GENERIC (N : INTEGER := 10;
-				 M : INTEGER := 10;
-				 INITIAL_SIZE : INTEGER := 2);
-			  -- clock do jogo
-		PORT (clock      : IN STD_LOGIC;
+		 -- DImensões do mapa
+		 GENERIC (N : INTEGER := 10;
+					 M : INTEGER := 10;
+					 INITIAL_SIZE : INTEGER := 2);
+				 -- clock do jogo
+		 PORT (clock      : IN STD_LOGIC;
 
-			  -- reseta o jogo
-			  reset      : IN STD_LOGIC;
+				 -- reseta o jogo
+				 reset      : IN STD_LOGIC;
+				 
+				 -- aumento do tamanho
+				 eaten      : IN STD_LOGIC;
+				 
+				 snake_size : IN INTEGER RANGE 0 TO N*M;
 
-			  -- posicao para a qual a cobra deve virar
-			  -- snake_turn(0) = 1 : horario
-			  -- snake_turn(1) = 1 : anti horario
-			  snake_turn : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+				 -- direcao para onde a cobra esta se movendo
+				 -- 11 : cima
+				 -- 00 : baixo
+				 -- 10 : esquerda
+				 -- 01 : direita
+				 dir        : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
 
-			  -- tamanho atual da cobra (pontuacao)
-			  snake_size : IN INTEGER RANGE 0 TO N*M;
-
-			  -- posicao da cabeca da cobra
-			  snake_head : OUT INTEGER RANGE 0 TO N*M-1;
-
-			  snake_body : OUT int_array;
-			  
-			  dir        : OUT STD_LOGiC_VECTOR(1 DOWNTO 0));
-			  
-			  --gmap : OUT STD_LOGIC_VECTOR(0 TO N*M-1));
+				 -- posicoes da cobra no mapa
+				 snake_body : OUT int_array);
 	END COMPONENT;
 
 
 	COMPONENT size_counter IS
 	-- DImensões do mapa
-		GENERIC (N : INTEGER := 10;
-				 M : INTEGER := 10;
-				 INITIAL_SIZE : INTEGER := 2);
-		PORT (reset      : IN STD_LOGIC;
-			  snake_head : IN INTEGER RANGE 0 TO N*M-1;
-			  food_pos   : IN INTEGER RANGE 0 TO N*M-1;
-			  snake_size : OUT  INTEGER RANGE 0 TO N*M;
-			  eaten      : OUT  STD_LOGIC);
+		 GENERIC (N : INTEGER := 10;
+					 M : INTEGER := 10;
+					 INITIAL_SIZE : INTEGER := 2);
+		 PORT (reset      : IN STD_LOGIC;
+				 food_pos   : IN INTEGER RANGE -20 TO 255;
+				 --food_pos   : IN INTEGER RANGE 0 TO N*M-1;
+				 snake_head : IN INTEGER RANGE -20 TO 255;
+				 snake_size : OUT  INTEGER RANGE 0 TO N*M;
+				 eaten      : OUT  STD_LOGIC);
 	END COMPONENT;
-	
-	
+
+
 	COMPONENT colision IS
 	-- Dimensoes do mapa
 		GENERIC (N : INTEGER := 10;
@@ -85,5 +85,11 @@ PACKAGE snake_pack IS
 			  gmap       : OUT STD_LOGIC_VECTOR(0 to N*M-1);
 			  lost       : OUT STD_LOGIC);
 	END COMPONENT ;
+
+	COMPONENT snake_dir IS
+		PORT (reset : IN STD_LOGIC;
+			  snake_turn : IN STD_LOGIC_VECTOR(1 downto 0);
+			  dir : BUFFER STD_LOGIC_VECTOR(0 to 1));
+	END COMPONENT;
 
 END snake_pack;

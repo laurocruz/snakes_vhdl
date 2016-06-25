@@ -1,0 +1,13 @@
+vendor_name = ModelSim
+source_file = 1, /home/laurocruz/Documents/MC613/snakes_vhdl/src/snake_lib/snake_pack.vhd
+source_file = 1, /home/laurocruz/Documents/MC613/snakes_vhdl/src/snake_lib/snake_dir.vhd
+source_file = 1, /home/laurocruz/Documents/MC613/snakes_vhdl/demo_snake_dir/demo_snake_dir.vhd
+source_file = 1, /home/laurocruz/Documents/MC613/snakes_vhdl/demo_snake_dir/db/demo_snake_dir.cbx.xml
+source_file = 1, /home/altera/quartus/libraries/vhdl/ieee/prmtvs_b.vhd
+source_file = 1, /home/altera/quartus/libraries/vhdl/ieee/prmtvs_p.vhd
+source_file = 1, /home/altera/quartus/libraries/vhdl/ieee/timing_b.vhd
+source_file = 1, /home/altera/quartus/libraries/vhdl/ieee/timing_p.vhd
+design_name = demo_snake_dir
+instance = comp, \reset~I\, reset, demo_snake_dir, 1
+instance = comp, \snake_turn[0]~I\, snake_turn[0], demo_snake_dir, 1
+instance = comp, \snake_turn[1]~I\, snake_turn[1], demo_snake_dir, 1

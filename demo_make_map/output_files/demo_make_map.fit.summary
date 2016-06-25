@@ -1,15 +1,15 @@
-Fitter Status : Successful - Fri Jun 24 15:50:31 2016
+Fitter Status : Successful - Sat Jun 25 19:08:33 2016
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : demo_make_map
 Top-level Entity Name : demo_make_map
 Family : Cyclone II
 Device : EP2C20F484C7
 Timing Models : Final
-Total logic elements : 4,743 / 18,752 ( 25 % )
-    Total combinational functions : 4,742 / 18,752 ( 25 % )
-    Dedicated logic registers : 576 / 18,752 ( 3 % )
-Total registers : 576
-Total pins : 19 / 315 ( 6 % )
+Total logic elements : 0 / 18,752 ( 0 % )
+    Total combinational functions : 0 / 18,752 ( 0 % )
+    Dedicated logic registers : 0 / 18,752 ( 0 % )
+Total registers : 0
+Total pins : 12 / 315 ( 4 % )
 Total virtual pins : 0
 Total memory bits : 0 / 239,616 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 52 ( 0 % )

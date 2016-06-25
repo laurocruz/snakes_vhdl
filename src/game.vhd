@@ -24,7 +24,6 @@ END game;
 ARCHITECTURE Behavior OF game IS
     SIGNAL eaten : STD_LOGIC;
     SIGNAL game_clock : STD_LOGIC;
-    SIGNAL snake_head : INTEGER RANGE 0 TO M*N-1;
     SIGNAL snake_size_s : INTEGER RANGE 0 TO M*N;
     SIGNAL snake_body_s : int_array;
     SIGNAL food_pos_s : INTEGER RANGE 0 TO M*N-1;
@@ -34,37 +33,41 @@ ARCHITECTURE Behavior OF game IS
 
 BEGIN
 
-	food1: create_food 
+	food1: create_food
 		GENERIC MAP (N,M)
 		PORT MAP(eaten => eaten,
 					gmap => gmap_s,
 					snake_size => snake_size_s,
 					new_food => food_pos_s);
 
-	clock1: gclock 
+	clock1: gclock
 		PORT MAP(CLOCK_27 => clock,
 					reset => reset or lost_s,
 					clock_out => game_clock);
 
-	gmap1: make_map
+    gmap1: make_map
 		GENERIC MAP(N,M,INITIAL_SIZE)
 		PORT MAP(clock => game_clock,
 					reset => reset or lost_s,
-					snake_turn => KEY,
+					eaten => eaten,
 					snake_size => snake_size_s,
-					snake_head => snake_head,
-					snake_body => snake_body_s,
-					dir => dir_s);
+					dir => dir_s,
+					snake_body => snake_body_s);
 
-	size1: size_counter 
+    dir_select1: snake_dir
+        PORT MAP(reset => reset or lost_s,
+                    snake_turn => KEY,
+                    dir => dir_s);
+
+	size1: size_counter
 		GENERIC MAP(N,M,INITIAL_SIZE)
 		PORT MAP(reset => reset or lost_s,
-					snake_head => snake_head,
 					food_pos => food_pos_s,
+               snake_head => snake_body_s(0),
 					snake_size => snake_size_s,
 					eaten => eaten);
 
-	colision1: colision 
+	colision1: colision
 		GENERIC MAP(N,M)
 		PORT MAP(snake_body => snake_body_s,
 					dir => dir_s,

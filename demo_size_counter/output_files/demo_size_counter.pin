@@ -93,7 +93,7 @@ GND                          : A22       : gnd    :                   :         
 VCCIO1                       : AA1       : power  :                   : 3.3V    : 1         :                
 GND                          : AA2       : gnd    :                   :         :           :                
 GND*                         : AA3       :        :                   :         : 8         :                
-GND*                         : AA4       :        :                   :         : 8         :                
+reset                        : AA4       : input  : 3.3-V LVTTL       :         : 8         : N              
 GND*                         : AA5       :        :                   :         : 8         :                
 GND*                         : AA6       :        :                   :         : 8         :                
 GND*                         : AA7       :        :                   :         : 8         :                
@@ -109,7 +109,7 @@ GND*                         : AA16      :        :                   :         
 GND*                         : AA17      :        :                   :         : 7         :                
 GND*                         : AA18      :        :                   :         : 7         :                
 GND*                         : AA19      :        :                   :         : 7         :                
-GND*                         : AA20      :        :                   :         : 7         :                
+food_pos[5]                  : AA20      : input  : 3.3-V LVTTL       :         : 7         : N              
 GND                          : AA21      : gnd    :                   :         :           :                
 VCCIO6                       : AA22      : power  :                   : 3.3V    : 6         :                
 GND                          : AB1       : gnd    :                   :         :           :                
@@ -127,7 +127,7 @@ GND*                         : AB12      :        :                   :         
 GND*                         : AB13      :        :                   :         : 7         :                
 GND*                         : AB14      :        :                   :         : 7         :                
 GND*                         : AB15      :        :                   :         : 7         :                
-GND*                         : AB16      :        :                   :         : 7         :                
+snake_size[2]                : AB16      : output : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : AB17      :        :                   :         : 7         :                
 GND*                         : AB18      :        :                   :         : 7         :                
 GND*                         : AB19      :        :                   :         : 7         :                
@@ -140,7 +140,7 @@ GND*                         : B3        :        :                   :         
 GND*                         : B4        :        :                   :         : 3         :                
 GND*                         : B5        :        :                   :         : 3         :                
 GND*                         : B6        :        :                   :         : 3         :                
-GND*                         : B7        :        :                   :         : 3         :                
+food_pos[3]                  : B7        : input  : 3.3-V LVTTL       :         : 3         : N              
 GND*                         : B8        :        :                   :         : 3         :                
 GND*                         : B9        :        :                   :         : 3         :                
 GND*                         : B10       :        :                   :         : 3         :                
@@ -151,20 +151,20 @@ GND*                         : B14       :        :                   :         
 GND*                         : B15       :        :                   :         : 4         :                
 GND*                         : B16       :        :                   :         : 4         :                
 GND*                         : B17       :        :                   :         : 4         :                
-GND*                         : B18       :        :                   :         : 4         :                
-GND*                         : B19       :        :                   :         : 4         :                
+snake_size[0]                : B18       : output : 3.3-V LVTTL       :         : 4         : N              
+food_pos[1]                  : B19       : input  : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : B20       :        :                   :         : 4         :                
 GND                          : B21       : gnd    :                   :         :           :                
 VCCIO5                       : B22       : power  :                   : 3.3V    : 5         :                
-snake_size[2]                : C1        : output : 3.3-V LVTTL       :         : 2         : N              
-snake_size[1]                : C2        : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : C1        :        :                   :         : 2         :                
+GND*                         : C2        :        :                   :         : 2         :                
 ~nCSO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : C3        : input  : 3.3-V LVTTL       :         : 2         : N              
 ~ASDO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : C4        : input  : 3.3-V LVTTL       :         : 2         : N              
 GND                          : C5        : gnd    :                   :         :           :                
 VCCIO3                       : C6        : power  :                   : 3.3V    : 3         :                
-food_pos[5]                  : C7        : input  : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : C7        :        :                   :         : 3         :                
 GND                          : C8        : gnd    :                   :         :           :                
-snake_head[1]                : C9        : input  : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : C9        :        :                   :         : 3         :                
 GND*                         : C10       :        :                   :         : 3         :                
 VCCIO3                       : C11       : power  :                   : 3.3V    : 3         :                
 VCCIO4                       : C12       : power  :                   : 3.3V    : 4         :                
@@ -178,14 +178,14 @@ GND*                         : C19       :        :                   :         
 GND*                         : C20       :        :                   :         : 5         :                
 GND*                         : C21       :        :                   :         : 5         :                
 GND*                         : C22       :        :                   :         : 5         :                
-snake_size[4]                : D1        : output : 3.3-V LVTTL       :         : 2         : N              
-snake_size[6]                : D2        : output : 3.3-V LVTTL       :         : 2         : N              
-snake_size[3]                : D3        : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : D1        :        :                   :         : 2         :                
+GND*                         : D2        :        :                   :         : 2         :                
+GND*                         : D3        :        :                   :         : 2         :                
 GND*                         : D4        :        :                   :         : 2         :                
-food_pos[2]                  : D5        : input  : 3.3-V LVTTL       :         : 2         : N              
-food_pos[3]                  : D6        : input  : 3.3-V LVTTL       :         : 2         : N              
-food_pos[1]                  : D7        : input  : 3.3-V LVTTL       :         : 3         : N              
-snake_head[0]                : D8        : input  : 3.3-V LVTTL       :         : 3         : N              
+snake_size[4]                : D5        : output : 3.3-V LVTTL       :         : 2         : N              
+snake_size[6]                : D6        : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : D7        :        :                   :         : 3         :                
+snake_size[5]                : D8        : output : 3.3-V LVTTL       :         : 3         : N              
 GND*                         : D9        :        :                   :         : 3         :                
 GND                          : D10       : gnd    :                   :         :           :                
 GND*                         : D11       :        :                   :         : 3         :                
@@ -202,11 +202,11 @@ GND*                         : D21       :        :                   :         
 GND*                         : D22       :        :                   :         : 5         :                
 GND*                         : E1        :        :                   :         : 2         :                
 GND*                         : E2        :        :                   :         : 2         :                
-snake_head[3]                : E3        : input  : 3.3-V LVTTL       :         : 2         : N              
-snake_head[2]                : E4        : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : E3        :        :                   :         : 2         :                
+food_pos[0]                  : E4        : input  : 3.3-V LVTTL       :         : 2         : N              
 VCCD_PLL3                    : E5        : power  :                   : 1.2V    :           :                
 VCCA_PLL3                    : E6        : power  :                   : 1.2V    :           :                
-snake_head[4]                : E7        : input  : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : E7        :        :                   :         : 3         :                
 GND*                         : E8        :        :                   :         : 3         :                
 GND*                         : E9        :        :                   :         : 3         :                
 VCCIO3                       : E10       : power  :                   : 3.3V    : 3         :                
@@ -223,13 +223,13 @@ GND*                         : E20       :        :                   :         
 GND*                         : E21       :        :                   :         : 5         :                
 GND*                         : E22       :        :                   :         : 5         :                
 GND*                         : F1        :        :                   :         : 2         :                
-GND*                         : F2        :        :                   :         : 2         :                
+eaten                        : F2        : output : 3.3-V LVTTL       :         : 2         : N              
 GND*                         : F3        :        :                   :         : 2         :                
-snake_size[5]                : F4        : output : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : F4        :        :                   :         : 2         :                
 GND_PLL3                     : F5        : gnd    :                   :         :           :                
 GND_PLL3                     : F6        : gnd    :                   :         :           :                
 GNDA_PLL3                    : F7        : gnd    :                   :         :           :                
-food_pos[0]                  : F8        : input  : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : F8        :        :                   :         : 3         :                
 GND*                         : F9        :        :                   :         : 3         :                
 GND*                         : F10       :        :                   :         : 3         :                
 GND*                         : F11       :        :                   :         : 3         :                
@@ -243,15 +243,15 @@ GND_PLL2                     : F18       : gnd    :                   :         
 GND                          : F19       : gnd    :                   :         :           :                
 GND*                         : F20       :        :                   :         : 5         :                
 GND*                         : F21       :        :                   :         : 5         :                
-GND*                         : F22       :        :                   :         : 5         :                
+food_pos[6]                  : F22       : input  : 3.3-V LVTTL       :         : 5         : N              
 NC                           : G1        :        :                   :         :           :                
 NC                           : G2        :        :                   :         :           :                
 GND*                         : G3        :        :                   :         : 2         :                
 GND                          : G4        : gnd    :                   :         :           :                
-GND*                         : G5        :        :                   :         : 2         :                
-snake_size[0]                : G6        : output : 3.3-V LVTTL       :         : 2         : N              
+food_pos[4]                  : G5        : input  : 3.3-V LVTTL       :         : 2         : N              
+GND*                         : G6        :        :                   :         : 2         :                
 GND*                         : G7        :        :                   :         : 3         :                
-snake_head[5]                : G8        : input  : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : G8        :        :                   :         : 3         :                
 VCCIO3                       : G9        : power  :                   : 3.3V    : 3         :                
 GND                          : G10       : gnd    :                   :         :           :                
 GND*                         : G11       :        :                   :         : 3         :                
@@ -273,8 +273,8 @@ GND*                         : H4        :        :                   :         
 GND*                         : H5        :        :                   :         : 2         :                
 GND*                         : H6        :        :                   :         : 2         :                
 GND*                         : H7        :        :                   :         : 3         :                
-food_pos[4]                  : H8        : input  : 3.3-V LVTTL       :         : 3         : N              
-eaten                        : H9        : output : 3.3-V LVTTL       :         : 3         : N              
+GND*                         : H8        :        :                   :         : 3         :                
+GND*                         : H9        :        :                   :         : 3         :                
 GND*                         : H10       :        :                   :         : 3         :                
 GND*                         : H11       :        :                   :         : 3         :                
 GND*                         : H12       :        :                   :         : 4         :                
@@ -354,7 +354,7 @@ GND*                         : L19       :        :                   :         
 VCCIO5                       : L20       : power  :                   : 3.3V    : 5         :                
 GND+                         : L21       :        :                   :         : 5         :                
 GND+                         : L22       :        :                   :         : 5         :                
-reset                        : M1        : input  : 3.3-V LVTTL       :         : 1         : N              
+GND+                         : M1        :        :                   :         : 1         :                
 GND+                         : M2        :        :                   :         : 1         :                
 VCCIO1                       : M3        : power  :                   : 3.3V    : 1         :                
 GND                          : M4        : gnd    :                   :         :           :                
@@ -378,7 +378,7 @@ GND+                         : M21       :        :                   :         
 GND+                         : M22       :        :                   :         : 6         :                
 GND*                         : N1        :        :                   :         : 1         :                
 GND*                         : N2        :        :                   :         : 1         :                
-GND*                         : N3        :        :                   :         : 1         :                
+snake_size[1]                : N3        : output : 3.3-V LVTTL       :         : 1         : N              
 GND*                         : N4        :        :                   :         : 1         :                
 NC                           : N5        :        :                   :         :           :                
 GND*                         : N6        :        :                   :         : 1         :                
@@ -437,8 +437,8 @@ GND*                         : R14       :        :                   :         
 GND*                         : R15       :        :                   :         : 7         :                
 GND*                         : R16       :        :                   :         : 7         :                
 GND*                         : R17       :        :                   :         : 6         :                
-GND*                         : R18       :        :                   :         : 6         :                
-GND*                         : R19       :        :                   :         : 6         :                
+food_pos[2]                  : R18       : input  : 3.3-V LVTTL       :         : 6         : N              
+snake_size[3]                : R19       : output : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : R20       :        :                   :         : 6         :                
 GND*                         : R21       :        :                   :         : 6         :                
 GND*                         : R22       :        :                   :         : 6         :                

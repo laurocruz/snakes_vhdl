@@ -1,5 +1,5 @@
 Flow report for demo_make_map
-Fri Jun 24 15:50:59 2016
+Sat Jun 25 19:08:41 2016
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Fri Jun 24 15:50:59 2016           ;
+; Flow Status                        ; Successful - Sat Jun 25 19:08:41 2016           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; demo_make_map                                   ;
 ; Top-level Entity Name              ; demo_make_map                                   ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 4,743 / 18,752 ( 25 % )                         ;
-;     Total combinational functions  ; 4,742 / 18,752 ( 25 % )                         ;
-;     Dedicated logic registers      ; 576 / 18,752 ( 3 % )                            ;
-; Total registers                    ; 576                                             ;
-; Total pins                         ; 19 / 315 ( 6 % )                                ;
+; Total logic elements               ; 0 / 18,752 ( 0 % )                              ;
+;     Total combinational functions  ; 0 / 18,752 ( 0 % )                              ;
+;     Dedicated logic registers      ; 0 / 18,752 ( 0 % )                              ;
+; Total registers                    ; 0                                               ;
+; Total pins                         ; 12 / 315 ( 4 % )                                ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 239,616 ( 0 % )                             ;
 ; Embedded Multiplier 9-bit elements ; 0 / 52 ( 0 % )                                  ;
@@ -64,28 +64,28 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/24/2016 15:43:56 ;
+; Start date & time ; 06/25/2016 19:08:25 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; demo_make_map       ;
 +-------------------+---------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                              ;
-+-------------------------------------+----------------------------------------------------------+---------------+-------------+----------------+
-; Assignment Name                     ; Value                                                    ; Default Value ; Entity Name ; Section Id     ;
-+-------------------------------------+----------------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 0.146679383620995                                        ; --            ; --          ; --             ;
-; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                                     ; --            ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                                   ; <None>        ; --          ; --             ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                                       ; --            ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                                        ; --            ; --          ; --             ;
-; PARTITION_COLOR                     ; 16764057                                                 ; --            ; --          ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                    ; --            ; --          ; Top            ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                                                   ; --            ; --          ; Top            ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                                             ; --            ; --          ; --             ;
-; SEARCH_PATH                         ; /home/laurocruz/Desktop/snakes_vhdl-master/src/snake_lib ; --            ; --          ; --             ;
-+-------------------------------------+----------------------------------------------------------+---------------+-------------+----------------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                               ;
++-------------------------------------+-----------------------------------------------------------+---------------+-------------+----------------+
+; Assignment Name                     ; Value                                                     ; Default Value ; Entity Name ; Section Id     ;
++-------------------------------------+-----------------------------------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 0.146689250509995                                         ; --            ; --          ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                                      ; --            ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                                    ; <None>        ; --          ; --             ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                        ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                         ; --            ; --          ; --             ;
+; PARTITION_COLOR                     ; 16764057                                                  ; --            ; --          ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                     ; --            ; --          ; Top            ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                                    ; --            ; --          ; Top            ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                                              ; --            ; --          ; --             ;
+; SEARCH_PATH                         ; /home/laurocruz/Documents/MC613/snakes_vhdl/src/snake_lib ; --            ; --          ; --             ;
++-------------------------------------+-----------------------------------------------------------+---------------+-------------+----------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------+
@@ -93,12 +93,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:18     ; 1.0                     ; 656 MB              ; 00:00:18                           ;
-; Fitter                    ; 00:06:16     ; 1.0                     ; 884 MB              ; 00:06:16                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 556 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:13     ; 1.0                     ; 712 MB              ; 00:00:13                           ;
-; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 836 MB              ; 00:00:03                           ;
-; Total                     ; 00:06:51     ; --                      ; --                  ; 00:06:52                           ;
+; Analysis & Synthesis      ; 00:00:03     ; 1.0                     ; 687 MB              ; 00:00:03                           ;
+; Fitter                    ; 00:00:03     ; 1.0                     ; 670 MB              ; 00:00:03                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 536 MB              ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 492 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:00     ; 1.0                     ; 788 MB              ; 00:00:00                           ;
+; Total                     ; 00:00:09     ; --                      ; --                  ; 00:00:08                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

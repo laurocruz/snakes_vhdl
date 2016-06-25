@@ -1,5 +1,5 @@
 Assembler report for demo_size_counter
-Fri Jun 24 15:25:06 2016
+Sat Jun 25 19:17:55 2016
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Jun 24 15:25:06 2016 ;
+; Assembler Status      ; Successful - Sat Jun 25 19:17:55 2016 ;
 ; Revision Name         ; demo_size_counter                     ;
 ; Top-level Entity Name ; demo_size_counter                     ;
 ; Family                ; Cyclone II                            ;
@@ -94,8 +94,8 @@ applicable agreement for further details.
 ; Option         ; Setting                        ;
 +----------------+--------------------------------+
 ; Device         ; EP2C20F484C7                   ;
-; JTAG usercode  ; 0x001B1E4B                     ;
-; Checksum       ; 0x001B1E4B                     ;
+; JTAG usercode  ; 0x001B02B8                     ;
+; Checksum       ; 0x001B02B8                     ;
 +----------------+--------------------------------+
 
 
@@ -106,7 +106,7 @@ applicable agreement for further details.
 +--------------------+----------------------------+
 ; Device             ; EPCS16                     ;
 ; JTAG usercode      ; 0x00000000                 ;
-; Checksum           ; 0x1DD93327                 ;
+; Checksum           ; 0x1DD9C0CA                 ;
 ; Compression Ratio  ; 3                          ;
 +--------------------+----------------------------+
 
@@ -117,13 +117,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Jun 24 15:25:05 2016
+    Info: Processing started: Sat Jun 25 19:17:54 2016
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off demo_size_counter -c demo_size_counter
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 544 megabytes
-    Info: Processing ended: Fri Jun 24 15:25:06 2016
+    Info: Peak virtual memory: 540 megabytes
+    Info: Processing ended: Sat Jun 25 19:17:55 2016
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

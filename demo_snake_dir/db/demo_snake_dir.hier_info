@@ -1,0 +1,16 @@
+|demo_snake_dir
+reset => snake_dir:snake_dir1.reset
+snake_turn[0] => snake_dir:snake_dir1.snake_turn[0]
+snake_turn[1] => snake_dir:snake_dir1.snake_turn[1]
+
+
+|demo_snake_dir|snake_dir:snake_dir1
+reset => ~NO_FANOUT~
+snake_turn[0] => dir[1].OUTPUTSELECT
+snake_turn[0] => dir[0].OUTPUTSELECT
+snake_turn[0] => dir[0].IN0
+snake_turn[1] => dir[0].IN1
+dir[1] <= dir[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+dir[0] <= dir[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+

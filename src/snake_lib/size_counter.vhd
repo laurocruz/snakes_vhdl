@@ -12,8 +12,9 @@ ENTITY size_counter IS
              M : INTEGER := 10;
              INITIAL_SIZE : INTEGER := 2);
     PORT (reset      : IN STD_LOGIC;
-          snake_head : IN INTEGER RANGE 0 TO N*M-1;
-          food_pos   : IN INTEGER RANGE 0 TO N*M-1;
+			 food_pos   : IN INTEGER RANGE -20 TO 255;
+          --food_pos   : IN INTEGER RANGE 0 TO N*M-1;
+          snake_head : IN INTEGER RANGE -20 TO 255;
           snake_size : OUT  INTEGER RANGE 0 TO N*M;
           eaten      : OUT  STD_LOGIC);
 END size_counter;
@@ -31,7 +32,7 @@ BEGIN
         IF (reset = '1') THEN
             size <= INITIAL_SIZE;
 		ELSIF (eatens'EVENT and eatens = '1') THEN
-			size <= size + 1;
+				size <= size + 1;
 		END IF;
 	END PROCESS;
 
