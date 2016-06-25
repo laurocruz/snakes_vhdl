@@ -12,9 +12,11 @@ END snake_dir;
 
 ARCHITECTURE Behavior OF snake_dir IS
 	BEGIN
-	PROCESS(snake_turn)
+	PROCESS(snake_turn(0), snake_turn(1), reset)
 		BEGIN
-		IF (snake_turn(0) = '1') THEN
+		IF (reset = '1') THEN
+			dir <= "11";
+		ELSIF (snake_turn(0) = '1') THEN
 			IF (dir = "00") THEN
 				dir <= "01";
 			ELSIF (dir = "01") THEN

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for demo_size_counter
-Sat Jun 25 19:17:47 2016
+Sat Jun 25 19:40:41 2016
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -46,7 +46,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jun 25 19:17:47 2016           ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun 25 19:40:41 2016           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; demo_size_counter                               ;
 ; Top-level Entity Name              ; demo_size_counter                               ;
@@ -298,7 +298,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Jun 25 19:17:46 2016
+    Info: Processing started: Sat Jun 25 19:40:39 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off demo_size_counter -c demo_size_counter
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file /home/laurocruz/Documents/MC613/snakes_vhdl/src/snake_lib/size_counter.vhd
@@ -336,9 +336,9 @@ Info (21057): Implemented 16 device resources after synthesis - the final resour
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 8 output pins
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 20 warnings
-    Info: Peak virtual memory: 617 megabytes
-    Info: Processing ended: Sat Jun 25 19:17:47 2016
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 631 megabytes
+    Info: Processing ended: Sat Jun 25 19:40:41 2016
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 

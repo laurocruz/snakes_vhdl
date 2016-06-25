@@ -1,5 +1,5 @@
 Analysis & Synthesis report for demo_create_food
-Fri Jun 24 15:27:19 2016
+Sat Jun 25 20:42:23 2016
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -10,7 +10,15 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Parameter Settings for User Entity Instance: Top-level Entity: |demo_create_food
+ 11. Parameter Settings for User Entity Instance: create_food:create_food1
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -36,20 +44,20 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Fri Jun 24 15:27:19 2016               ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun 25 20:42:23 2016           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; demo_create_food                                ;
 ; Top-level Entity Name              ; demo_create_food                                ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; N/A until Partition Merge                       ;
-;     Total combinational functions  ; N/A until Partition Merge                       ;
-;     Dedicated logic registers      ; N/A until Partition Merge                       ;
-; Total registers                    ; N/A until Partition Merge                       ;
-; Total pins                         ; N/A until Partition Merge                       ;
-; Total virtual pins                 ; N/A until Partition Merge                       ;
-; Total memory bits                  ; N/A until Partition Merge                       ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                       ;
-; Total PLLs                         ; N/A until Partition Merge                       ;
+; Total logic elements               ; 19                                              ;
+;     Total combinational functions  ; 19                                              ;
+;     Dedicated logic registers      ; 6                                               ;
+; Total registers                    ; 6                                               ;
+; Total pins                         ; 109                                             ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
 +------------------------------------+-------------------------------------------------+
 
 
@@ -149,31 +157,271 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+-----------------------+-----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path                                                      ; Library ;
++----------------------------------+-----------------+-----------------------+-----------------------------------------------------------------------------------+---------+
+; ../src/snake_lib/snake_pack.vhd  ; yes             ; User VHDL File        ; /home/laurocruz/Documents/MC613/snakes_vhdl/src/snake_lib/snake_pack.vhd          ;         ;
+; demo_create_food.vhd             ; yes             ; User VHDL File        ; /home/laurocruz/Documents/MC613/snakes_vhdl/demo_create_food/demo_create_food.vhd ;         ;
+; create_food.vhd                  ; yes             ; Auto-Found VHDL File  ; /home/laurocruz/Documents/MC613/snakes_vhdl/src/snake_lib/create_food.vhd         ;         ;
++----------------------------------+-----------------+-----------------------+-----------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 19    ;
+;                                             ;       ;
+; Total combinational functions               ; 19    ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 6     ;
+;     -- 3 input functions                    ; 6     ;
+;     -- <=2 input functions                  ; 7     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 19    ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 6     ;
+;     -- Dedicated logic registers            ; 6     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 109   ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; reset ;
+; Maximum fan-out                             ; 18    ;
+; Total fan-out                               ; 80    ;
+; Average fan-out                             ; 0.60  ;
++---------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                   ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
+; Compilation Hierarchy Node    ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Library Name ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
+; |demo_create_food             ; 19 (0)            ; 6 (0)        ; 0           ; 0            ; 0       ; 0         ; 109  ; 0            ; |demo_create_food                          ; work         ;
+;    |create_food:create_food1| ; 19 (19)           ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |demo_create_food|create_food:create_food1 ; work         ;
++-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                      ;
++-------------------------------------------------+-------------------------------------------------------+
+; Register name                                   ; Reason for Removal                                    ;
++-------------------------------------------------+-------------------------------------------------------+
+; create_food:create_food1|num[6]                 ; Stuck at GND due to stuck port data_in                ;
+; create_food:create_food1|rand_temp[0]~_emulated ; Merged with create_food:create_food1|num[0]~_emulated ;
+; create_food:create_food1|rand_temp[4]~_emulated ; Merged with create_food:create_food1|num[4]~_emulated ;
+; create_food:create_food1|rand_temp[5]~_emulated ; Merged with create_food:create_food1|num[5]~_emulated ;
+; create_food:create_food1|rand_temp[1]~_emulated ; Merged with create_food:create_food1|num[1]~_emulated ;
+; create_food:create_food1|rand_temp[2]~_emulated ; Merged with create_food:create_food1|num[2]~_emulated ;
+; create_food:create_food1|rand_temp[3]~_emulated ; Merged with create_food:create_food1|num[3]~_emulated ;
+; Total Number of Removed Registers = 7           ;                                                       ;
++-------------------------------------------------+-------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 6     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 6     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |demo_create_food ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; N              ; 10    ; Signed Integer                                          ;
+; M              ; 10    ; Signed Integer                                          ;
+; width          ; 6     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: create_food:create_food1 ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; n              ; 10    ; Signed Integer                               ;
+; m              ; 10    ; Signed Integer                               ;
+; width          ; 6     ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Jun 24 15:27:17 2016
+    Info: Processing started: Sat Jun 25 20:42:22 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off demo_create_food -c demo_create_food
 Warning (20028): Parallel compilation is not licensed and has been disabled
-Info (12021): Found 1 design units, including 0 entities, in source file /home/laurocruz/Desktop/snakes_vhdl-master/src/snake_lib/snake_pack.vhd
+Info (12021): Found 1 design units, including 0 entities, in source file /home/laurocruz/Documents/MC613/snakes_vhdl/src/snake_lib/snake_pack.vhd
     Info (12022): Found design unit 1: snake_pack
-Info (12021): Found 2 design units, including 1 entities, in source file /home/laurocruz/Desktop/snakes_vhdl-master/src/snake_lib/create_food.vhd
-    Info (12022): Found design unit 1: create_food-Behavior
-    Info (12023): Found entity 1: create_food
 Info (12021): Found 2 design units, including 1 entities, in source file demo_create_food.vhd
     Info (12022): Found design unit 1: demo_create_food-Behavior
     Info (12023): Found entity 1: demo_create_food
 Info (12127): Elaborating entity "demo_create_food" for the top level hierarchy
+Warning (12125): Using design file /home/laurocruz/Documents/MC613/snakes_vhdl/src/snake_lib/create_food.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: create_food-Behavior
+    Info (12023): Found entity 1: create_food
 Info (12128): Elaborating entity "create_food" for hierarchy "create_food:create_food1"
-Error (10536): VHDL Loop Statement error at create_food.vhd(36): loop must terminate within 10,000 iterations File: /home/laurocruz/Desktop/snakes_vhdl-master/src/snake_lib/create_food.vhd Line: 36
-Error (12152): Can't elaborate user hierarchy "create_food:create_food1" File: /home/laurocruz/Desktop/snakes_vhdl-master/demo_create_food/demo_create_food.vhd Line: 24
-Error: Quartus II 64-Bit Analysis & Synthesis was unsuccessful. 2 errors, 1 warning
-    Error: Peak virtual memory: 705 megabytes
-    Error: Processing ended: Fri Jun 24 15:27:19 2016
-    Error: Elapsed time: 00:00:02
-    Error: Total CPU time (on all processors): 00:00:02
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "create_food:create_food1|num[0]" is converted into an equivalent circuit using register "create_food:create_food1|num[0]~_emulated" and latch "create_food:create_food1|num[0]~1"
+    Warning (13310): Register "create_food:create_food1|num[1]" is converted into an equivalent circuit using register "create_food:create_food1|num[1]~_emulated" and latch "create_food:create_food1|num[1]~5"
+    Warning (13310): Register "create_food:create_food1|num[2]" is converted into an equivalent circuit using register "create_food:create_food1|num[2]~_emulated" and latch "create_food:create_food1|num[2]~9"
+    Warning (13310): Register "create_food:create_food1|num[3]" is converted into an equivalent circuit using register "create_food:create_food1|num[3]~_emulated" and latch "create_food:create_food1|num[3]~13"
+    Warning (13310): Register "create_food:create_food1|num[4]" is converted into an equivalent circuit using register "create_food:create_food1|num[4]~_emulated" and latch "create_food:create_food1|num[4]~17"
+    Warning (13310): Register "create_food:create_food1|num[5]" is converted into an equivalent circuit using register "create_food:create_food1|num[5]~_emulated" and latch "create_food:create_food1|num[5]~21"
+    Warning (13310): Register "create_food:create_food1|rand_temp[5]" is converted into an equivalent circuit using register "create_food:create_food1|rand_temp[5]~_emulated" and latch "create_food:create_food1|num[5]~21"
+    Warning (13310): Register "create_food:create_food1|rand_temp[4]" is converted into an equivalent circuit using register "create_food:create_food1|rand_temp[4]~_emulated" and latch "create_food:create_food1|num[4]~17"
+    Warning (13310): Register "create_food:create_food1|rand_temp[0]" is converted into an equivalent circuit using register "create_food:create_food1|rand_temp[0]~_emulated" and latch "create_food:create_food1|num[0]~1"
+    Warning (13310): Register "create_food:create_food1|rand_temp[1]" is converted into an equivalent circuit using register "create_food:create_food1|rand_temp[1]~_emulated" and latch "create_food:create_food1|rand_temp[1]~7"
+    Warning (13310): Register "create_food:create_food1|rand_temp[2]" is converted into an equivalent circuit using register "create_food:create_food1|rand_temp[2]~_emulated" and latch "create_food:create_food1|rand_temp[2]~11"
+    Warning (13310): Register "create_food:create_food1|rand_temp[3]" is converted into an equivalent circuit using register "create_food:create_food1|rand_temp[3]~_emulated" and latch "create_food:create_food1|rand_temp[3]~15"
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "create_food:create_food1|rand_temp[1]~7" merged with LATCH primitive "create_food:create_food1|num[1]~5"
+    Info (13026): Duplicate LATCH primitive "create_food:create_food1|rand_temp[2]~11" merged with LATCH primitive "create_food:create_food1|num[2]~9"
+    Info (13026): Duplicate LATCH primitive "create_food:create_food1|rand_temp[3]~15" merged with LATCH primitive "create_food:create_food1|num[3]~13"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "new_food[6]" is stuck at GND
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 100 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "gmap[99]"
+    Warning (15610): No output dependent on input pin "gmap[98]"
+    Warning (15610): No output dependent on input pin "gmap[97]"
+    Warning (15610): No output dependent on input pin "gmap[96]"
+    Warning (15610): No output dependent on input pin "gmap[95]"
+    Warning (15610): No output dependent on input pin "gmap[94]"
+    Warning (15610): No output dependent on input pin "gmap[93]"
+    Warning (15610): No output dependent on input pin "gmap[92]"
+    Warning (15610): No output dependent on input pin "gmap[91]"
+    Warning (15610): No output dependent on input pin "gmap[90]"
+    Warning (15610): No output dependent on input pin "gmap[89]"
+    Warning (15610): No output dependent on input pin "gmap[88]"
+    Warning (15610): No output dependent on input pin "gmap[87]"
+    Warning (15610): No output dependent on input pin "gmap[86]"
+    Warning (15610): No output dependent on input pin "gmap[85]"
+    Warning (15610): No output dependent on input pin "gmap[84]"
+    Warning (15610): No output dependent on input pin "gmap[83]"
+    Warning (15610): No output dependent on input pin "gmap[82]"
+    Warning (15610): No output dependent on input pin "gmap[81]"
+    Warning (15610): No output dependent on input pin "gmap[80]"
+    Warning (15610): No output dependent on input pin "gmap[79]"
+    Warning (15610): No output dependent on input pin "gmap[78]"
+    Warning (15610): No output dependent on input pin "gmap[77]"
+    Warning (15610): No output dependent on input pin "gmap[76]"
+    Warning (15610): No output dependent on input pin "gmap[75]"
+    Warning (15610): No output dependent on input pin "gmap[74]"
+    Warning (15610): No output dependent on input pin "gmap[73]"
+    Warning (15610): No output dependent on input pin "gmap[72]"
+    Warning (15610): No output dependent on input pin "gmap[71]"
+    Warning (15610): No output dependent on input pin "gmap[70]"
+    Warning (15610): No output dependent on input pin "gmap[69]"
+    Warning (15610): No output dependent on input pin "gmap[68]"
+    Warning (15610): No output dependent on input pin "gmap[67]"
+    Warning (15610): No output dependent on input pin "gmap[66]"
+    Warning (15610): No output dependent on input pin "gmap[65]"
+    Warning (15610): No output dependent on input pin "gmap[64]"
+    Warning (15610): No output dependent on input pin "gmap[63]"
+    Warning (15610): No output dependent on input pin "gmap[62]"
+    Warning (15610): No output dependent on input pin "gmap[61]"
+    Warning (15610): No output dependent on input pin "gmap[60]"
+    Warning (15610): No output dependent on input pin "gmap[59]"
+    Warning (15610): No output dependent on input pin "gmap[58]"
+    Warning (15610): No output dependent on input pin "gmap[57]"
+    Warning (15610): No output dependent on input pin "gmap[56]"
+    Warning (15610): No output dependent on input pin "gmap[55]"
+    Warning (15610): No output dependent on input pin "gmap[54]"
+    Warning (15610): No output dependent on input pin "gmap[53]"
+    Warning (15610): No output dependent on input pin "gmap[52]"
+    Warning (15610): No output dependent on input pin "gmap[51]"
+    Warning (15610): No output dependent on input pin "gmap[50]"
+    Warning (15610): No output dependent on input pin "gmap[49]"
+    Warning (15610): No output dependent on input pin "gmap[48]"
+    Warning (15610): No output dependent on input pin "gmap[47]"
+    Warning (15610): No output dependent on input pin "gmap[46]"
+    Warning (15610): No output dependent on input pin "gmap[45]"
+    Warning (15610): No output dependent on input pin "gmap[44]"
+    Warning (15610): No output dependent on input pin "gmap[43]"
+    Warning (15610): No output dependent on input pin "gmap[42]"
+    Warning (15610): No output dependent on input pin "gmap[41]"
+    Warning (15610): No output dependent on input pin "gmap[40]"
+    Warning (15610): No output dependent on input pin "gmap[39]"
+    Warning (15610): No output dependent on input pin "gmap[38]"
+    Warning (15610): No output dependent on input pin "gmap[37]"
+    Warning (15610): No output dependent on input pin "gmap[36]"
+    Warning (15610): No output dependent on input pin "gmap[35]"
+    Warning (15610): No output dependent on input pin "gmap[34]"
+    Warning (15610): No output dependent on input pin "gmap[33]"
+    Warning (15610): No output dependent on input pin "gmap[32]"
+    Warning (15610): No output dependent on input pin "gmap[31]"
+    Warning (15610): No output dependent on input pin "gmap[30]"
+    Warning (15610): No output dependent on input pin "gmap[29]"
+    Warning (15610): No output dependent on input pin "gmap[28]"
+    Warning (15610): No output dependent on input pin "gmap[27]"
+    Warning (15610): No output dependent on input pin "gmap[26]"
+    Warning (15610): No output dependent on input pin "gmap[25]"
+    Warning (15610): No output dependent on input pin "gmap[24]"
+    Warning (15610): No output dependent on input pin "gmap[23]"
+    Warning (15610): No output dependent on input pin "gmap[22]"
+    Warning (15610): No output dependent on input pin "gmap[21]"
+    Warning (15610): No output dependent on input pin "gmap[20]"
+    Warning (15610): No output dependent on input pin "gmap[19]"
+    Warning (15610): No output dependent on input pin "gmap[18]"
+    Warning (15610): No output dependent on input pin "gmap[17]"
+    Warning (15610): No output dependent on input pin "gmap[16]"
+    Warning (15610): No output dependent on input pin "gmap[15]"
+    Warning (15610): No output dependent on input pin "gmap[14]"
+    Warning (15610): No output dependent on input pin "gmap[13]"
+    Warning (15610): No output dependent on input pin "gmap[12]"
+    Warning (15610): No output dependent on input pin "gmap[11]"
+    Warning (15610): No output dependent on input pin "gmap[10]"
+    Warning (15610): No output dependent on input pin "gmap[9]"
+    Warning (15610): No output dependent on input pin "gmap[8]"
+    Warning (15610): No output dependent on input pin "gmap[7]"
+    Warning (15610): No output dependent on input pin "gmap[6]"
+    Warning (15610): No output dependent on input pin "gmap[5]"
+    Warning (15610): No output dependent on input pin "gmap[4]"
+    Warning (15610): No output dependent on input pin "gmap[3]"
+    Warning (15610): No output dependent on input pin "gmap[2]"
+    Warning (15610): No output dependent on input pin "gmap[1]"
+    Warning (15610): No output dependent on input pin "gmap[0]"
+Info (21057): Implemented 128 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 102 input pins
+    Info (21059): Implemented 7 output pins
+    Info (21061): Implemented 19 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 118 warnings
+    Info: Peak virtual memory: 619 megabytes
+    Info: Processing ended: Sat Jun 25 20:42:23 2016
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 

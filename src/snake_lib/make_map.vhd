@@ -41,8 +41,6 @@ ARCHITECTURE Behavior OF make_map IS
 
     SIGNAL dir_s : STD_LOGIC_VECTOR(1 DOWNTO 0);
 
-    SIGNAL oldsize : INTEGER RANGE 0 TO N*M := INITIAL_SIZE;
-
 BEGIN
 
     snake_body <= snake;
@@ -56,14 +54,12 @@ BEGIN
         --VARIABLE map_s : STD_LOGIC_VECTOR(0 TO N*M-1);
 	BEGIN
 
-        IF (reset = '1') THEN
-            oldsize <= INITIAL_SIZE;
-
-            FOR i in 0 to INITIAL_SIZE-1 LOOP
+		IF (reset = '1') THEN
+			FOR i in 0 to INITIAL_SIZE-1 LOOP
                 snake(i) <= (N/2) + (i+M/2)*M;
-            END LOOP;
+         END LOOP;
 
-            FOR i in INITIAL_SIZE to N*M-1 LOOP
+         FOR i in INITIAL_SIZE to N*M-1 LOOP
 				snake(i) <= -1;
 			END LOOP;
 			

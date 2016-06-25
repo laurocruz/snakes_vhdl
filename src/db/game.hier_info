@@ -5,6 +5,7 @@ reset => comb.IN1
 reset => comb.IN1
 reset => comb.IN1
 reset => comb.IN1
+reset => comb.IN1
 KEY[0] => snake_dir:dir_select1.snake_turn[0]
 KEY[1] => snake_dir:dir_select1.snake_turn[1]
 snake_size[0] <= size_counter:size1.snake_size[0]
@@ -124,6 +125,19 @@ food_pos[6] <= create_food:food1.new_food[6]
 
 
 |game|create_food:food1
+reset => num[0].ALOAD
+reset => num[1].ALOAD
+reset => num[2].ALOAD
+reset => num[3].ALOAD
+reset => num[4].ALOAD
+reset => num[5].ALOAD
+reset => num[6].ACLR
+reset => rand_temp[0].ALOAD
+reset => rand_temp[1].ALOAD
+reset => rand_temp[2].ALOAD
+reset => rand_temp[3].ALOAD
+reset => rand_temp[4].ALOAD
+reset => rand_temp[5].ALOAD
 eaten => num[0].CLK
 eaten => num[1].CLK
 eaten => num[2].CLK
@@ -237,13 +251,6 @@ gmap[3] => ~NO_FANOUT~
 gmap[2] => ~NO_FANOUT~
 gmap[1] => ~NO_FANOUT~
 gmap[0] => ~NO_FANOUT~
-snake_size[0] => ~NO_FANOUT~
-snake_size[1] => ~NO_FANOUT~
-snake_size[2] => ~NO_FANOUT~
-snake_size[3] => ~NO_FANOUT~
-snake_size[4] => ~NO_FANOUT~
-snake_size[5] => ~NO_FANOUT~
-snake_size[6] => ~NO_FANOUT~
 new_food[0] <= num[0].DB_MAX_OUTPUT_PORT_TYPE
 new_food[1] <= num[1].DB_MAX_OUTPUT_PORT_TYPE
 new_food[2] <= num[2].DB_MAX_OUTPUT_PORT_TYPE
@@ -3309,7 +3316,8 @@ snake_body[0][8] <= snake[0][8].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |game|snake_dir:dir_select1
-reset => ~NO_FANOUT~
+reset => dir[0]$latch.PRESET
+reset => dir[1]$latch.PRESET
 snake_turn[0] => dir[1].OUTPUTSELECT
 snake_turn[0] => dir[0].OUTPUTSELECT
 snake_turn[0] => dir[0].IN0
@@ -6358,7 +6366,7 @@ dir[0] => Equal202.IN0
 dir[1] => Equal198.IN0
 dir[1] => Equal199.IN0
 dir[1] => Equal202.IN1
-reset => ~NO_FANOUT~
+reset => outl.OUTPUTSELECT
 gmap[99] <= <VCC>
 gmap[98] <= <VCC>
 gmap[97] <= <VCC>

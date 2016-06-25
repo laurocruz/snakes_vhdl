@@ -1,5 +1,5 @@
 Analysis & Synthesis report for demo_snake_dir
-Sat Jun 25 18:52:57 2016
+Sat Jun 25 20:26:26 2016
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -42,7 +42,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jun 25 18:52:57 2016           ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun 25 20:26:26 2016           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; demo_snake_dir                                  ;
 ; Top-level Entity Name              ; demo_snake_dir                                  ;
@@ -240,7 +240,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Jun 25 18:52:55 2016
+    Info: Processing started: Sat Jun 25 20:26:25 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off demo_snake_dir -c demo_snake_dir
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 0 entities, in source file /home/laurocruz/Documents/MC613/snakes_vhdl/src/snake_lib/snake_pack.vhd
@@ -254,12 +254,13 @@ Info (12021): Found 2 design units, including 1 entities, in source file demo_sn
 Info (12127): Elaborating entity "demo_snake_dir" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at demo_snake_dir.vhd(13): object "dir" assigned a value but never read
 Info (12128): Elaborating entity "snake_dir" for hierarchy "snake_dir:snake_dir1"
-Warning (10492): VHDL Process Statement warning at snake_dir.vhd(18): signal "dir" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10812): VHDL warning at snake_dir.vhd(15): sensitivity list already contains snake_turn
 Warning (10492): VHDL Process Statement warning at snake_dir.vhd(20): signal "dir" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at snake_dir.vhd(22): signal "dir" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at snake_dir.vhd(29): signal "dir" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at snake_dir.vhd(24): signal "dir" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at snake_dir.vhd(31): signal "dir" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10492): VHDL Process Statement warning at snake_dir.vhd(33): signal "dir" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at snake_dir.vhd(35): signal "dir" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (10631): VHDL Process Statement warning at snake_dir.vhd(15): inferring latch(es) for signal or variable "dir", which holds its previous value in one or more paths through the process
 Info (10041): Inferred latch for "dir[1]" at snake_dir.vhd(15)
 Info (10041): Inferred latch for "dir[0]" at snake_dir.vhd(15)
@@ -272,10 +273,10 @@ Warning (21074): Design contains 3 input pin(s) that do not drive logic
 Info (21057): Implemented 3 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 0 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 627 megabytes
-    Info: Processing ended: Sat Jun 25 18:52:57 2016
-    Info: Elapsed time: 00:00:02
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 637 megabytes
+    Info: Processing ended: Sat Jun 25 20:26:26 2016
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

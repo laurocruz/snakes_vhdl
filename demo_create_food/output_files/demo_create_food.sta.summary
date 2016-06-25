@@ -2,28 +2,68 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow Model Setup 'reset'
+Slack : -8.995
+TNS   : -50.648
+
 Type  : Slow Model Setup 'eaten'
-Slack : -0.496
-TNS   : -0.590
+Slack : -7.823
+TNS   : -45.013
 
 Type  : Slow Model Hold 'eaten'
-Slack : 0.621
+Slack : -0.218
+TNS   : -0.484
+
+Type  : Slow Model Hold 'reset'
+Slack : -0.165
+TNS   : -0.629
+
+Type  : Slow Model Recovery 'eaten'
+Slack : -0.093
+TNS   : -0.556
+
+Type  : Slow Model Removal 'eaten'
+Slack : 0.344
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'eaten'
 Slack : -1.631
-TNS   : -16.295
+TNS   : -8.963
+
+Type  : Slow Model Minimum Pulse Width 'reset'
+Slack : -1.631
+TNS   : -1.631
+
+Type  : Fast Model Setup 'reset'
+Slack : -2.959
+TNS   : -16.543
 
 Type  : Fast Model Setup 'eaten'
-Slack : 0.415
-TNS   : 0.000
+Slack : -2.310
+TNS   : -13.189
 
 Type  : Fast Model Hold 'eaten'
-Slack : 0.241
+Slack : -0.688
+TNS   : -3.638
+
+Type  : Fast Model Hold 'reset'
+Slack : -0.545
+TNS   : -2.935
+
+Type  : Fast Model Recovery 'eaten'
+Slack : 0.233
+TNS   : 0.000
+
+Type  : Fast Model Removal 'eaten'
+Slack : 0.146
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'eaten'
 Slack : -1.380
-TNS   : -13.380
+TNS   : -7.380
+
+Type  : Fast Model Minimum Pulse Width 'reset'
+Slack : -1.380
+TNS   : -1.380
 
 ------------------------------------------------------------

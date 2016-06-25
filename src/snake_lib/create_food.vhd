@@ -10,9 +10,9 @@ ENTITY create_food IS
     GENERIC (N : INTEGER := 10;
              M : INTEGER := 10;
              width : INTEGER := 6);
-    PORT (eaten : IN STD_LOGIC;
+    PORT (reset : IN STD_LOGIC;
+			 eaten : IN STD_LOGIC;
           gmap  : IN STD_LOGIC_VECTOR(0 TO N*M-1);
-          snake_size : IN INTEGER RANGE 0 to N*M;
 	      new_food : OUT INTEGER RANGE 0 TO N*M-1);
           -- Guarda no máximo 255
 END create_food;
@@ -22,13 +22,19 @@ ARCHITECTURE Behavior of create_food is
 
 BEGIN
 
-	process(eaten)
+	process(eaten,reset)
 		variable rand_temp : std_logic_vector(width-1 downto 0):=(width-1 => '1',others => '0');
 		variable temp : std_logic := '0';
 		variable num  : integer range 0 to 2**width := 0;
 		--variable conflict : std_logic;
 	begin
-		if(rising_edge(eaten)) then
+	
+		if (reset = '1') then
+			temp := rand_temp(width-1) xor rand_temp(width-2);
+			rand_temp(width-1 downto 1) := rand_temp(width-2 downto 0);
+			rand_temp(0) := temp;
+			num := to_integer(unsigned(rand_temp));
+		elsif(rising_edge(eaten)) then
 			temp := rand_temp(width-1) xor rand_temp(width-2);
 			rand_temp(width-1 downto 1) := rand_temp(width-2 downto 0);
 			rand_temp(0) := temp;

@@ -16,10 +16,11 @@ PACKAGE snake_pack IS
 	COMPONENT create_food IS
 		-- Altura e comprimento do mapa
 		GENERIC (N : INTEGER := 10;
-				 M : INTEGER := 10);
-		PORT (eaten : IN STD_LOGIC;
+				 M : INTEGER := 10;
+				 width : INTEGER := 6);
+		PORT (reset : IN STD_LOGIC;
+			  eaten : IN STD_LOGIC;
 			  gmap : IN STD_LOGIC_VECTOR(0 TO N*M-1);
-			  snake_size : IN INTEGER RANGE 0 to N*M;
 			  new_food : OUT INTEGER RANGE 0 TO N*M-1);
 	END COMPONENT;
 

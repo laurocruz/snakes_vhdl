@@ -7,8 +7,8 @@ USE snake_lib.snake_pack.all;
 
 ENTITY demo_colision IS
 -- DImensões do mapa
-	GENERIC (N : INTEGER := 8;
-            M : INTEGER := 8);
+	GENERIC (N : INTEGER := 10;
+            M : INTEGER := 10);
 	PORT (dir        : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
 			reset      : IN STD_LOGIC;
          gmap       : OUT STD_LOGIC_VECTOR(0 to N*M-1);

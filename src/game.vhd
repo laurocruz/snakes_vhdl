@@ -9,7 +9,8 @@ ENTITY game IS
     -- Dimensões do mapa
     GENERIC (N : INTEGER := 10;
              M : INTEGER := 10;
-				 INITIAL_SIZE : INTEGER := 2);
+				 INITIAL_SIZE : INTEGER := 2;
+				 width : INTEGER := 6);
 
     PORT (clock : IN STD_LOGIC;
           reset : IN STD_LOGIC;
@@ -29,15 +30,14 @@ ARCHITECTURE Behavior OF game IS
     SIGNAL food_pos_s : INTEGER RANGE 0 TO M*N-1;
     SIGNAL gmap_s : STD_LOGIC_VECTOR(0 TO N*M-1);
     SIGNAL dir_s  : STD_LOGIC_VECTOR(0 to 1);
-    SIGNAL lost_s : STD_LOGIC;
+    SIGNAL lost_s : STD_LOGIC := '1';
 
 BEGIN
-
 	food1: create_food
-		GENERIC MAP (N,M)
-		PORT MAP(eaten => eaten,
+		GENERIC MAP (N,M,width)
+		PORT MAP(reset => reset or lost_s,
+					eaten => eaten,
 					gmap => gmap_s,
-					snake_size => snake_size_s,
 					new_food => food_pos_s);
 
 	clock1: gclock

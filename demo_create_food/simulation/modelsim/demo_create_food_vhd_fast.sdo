@@ -24,7 +24,7 @@
 (DELAYFILE
   (SDFVERSION "2.1")
   (DESIGN "demo_create_food")
-  (DATE "06/24/2016 15:20:06")
+  (DATE "06/25/2016 20:42:37")
   (VENDOR "Altera")
   (PROGRAM "Quartus II 64-Bit")
   (VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition")
@@ -65,23 +65,74 @@
     )
   )
   (CELL
-    (CELLTYPE "cycloneii_lcell_comb")
-    (INSTANCE \\create_food1\|rand_temp\[0\]\~feeder\\)
+    (CELLTYPE "cycloneii_asynch_io")
+    (INSTANCE \\reset\~I\\.asynch_inst)
     (DELAY
       (ABSOLUTE
-        (PORT datad (111:111:111) (111:111:111))
+        (IOPATH padio combout (571:571:571) (571:571:571))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_clkctrl")
+    (INSTANCE \\reset\~clkctrl\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT inclk[0] (181:181:181) (181:181:181))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_ena_reg")
+    (INSTANCE \\reset\~clkctrl\\.extena0_reg)
+    (DELAY
+      (ABSOLUTE
+        (PORT d (260:260:260) (260:260:260))
+        (PORT clk (0:0:0) (0:0:0))
+        (IOPATH (posedge clk) q (173:173:173) (173:173:173))
+      )
+    )
+    (TIMINGCHECK
+      (SETUP d (posedge clk) (33:33:33))
+      (HOLD d (posedge clk) (56:56:56))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_lcell_comb")
+    (INSTANCE \\create_food1\|num\[1\]\~5\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (117:117:117) (117:117:117))
+        (PORT datac (903:903:903) (903:903:903))
+        (PORT datad (113:113:113) (113:113:113))
+        (IOPATH dataa combout (180:180:180) (180:180:180))
+        (IOPATH datac combout (107:107:107) (107:107:107))
+        (IOPATH datad combout (59:59:59) (59:59:59))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_lcell_comb")
+    (INSTANCE \\create_food1\|num\[1\]\~7\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT datac (117:117:117) (117:117:117))
+        (PORT datad (115:115:115) (115:115:115))
+        (IOPATH datac combout (107:107:107) (107:107:107))
         (IOPATH datad combout (59:59:59) (59:59:59))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneii_lcell_ff")
-    (INSTANCE \\create_food1\|rand_temp\[0\]\\)
+    (INSTANCE \\create_food1\|num\[1\]\~_emulated\\)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1036:1036:1036) (1036:1036:1036))
+        (PORT clk (1038:1038:1038) (1038:1038:1038))
         (PORT datain (42:42:42) (42:42:42))
+        (PORT aclr (1209:1209:1209) (1209:1209:1209))
         (IOPATH (posedge clk) regout (141:141:141) (141:141:141))
+        (IOPATH (posedge aclr) regout (133:133:133) (133:133:133))
       )
     )
     (TIMINGCHECK
@@ -90,22 +141,56 @@
   )
   (CELL
     (CELLTYPE "cycloneii_lcell_comb")
-    (INSTANCE \\create_food1\|rand_temp\[1\]\~feeder\\)
+    (INSTANCE \\create_food1\|num\[1\]\~6\\)
     (DELAY
       (ABSOLUTE
-        (PORT datad (152:152:152) (152:152:152))
+        (PORT dataa (118:118:118) (118:118:118))
+        (PORT datab (288:288:288) (288:288:288))
+        (PORT datac (378:378:378) (378:378:378))
+        (PORT datad (153:153:153) (153:153:153))
+        (IOPATH dataa combout (180:180:180) (180:180:180))
+        (IOPATH datab combout (175:175:175) (175:175:175))
+        (IOPATH datac combout (107:107:107) (107:107:107))
+        (IOPATH datad combout (59:59:59) (59:59:59))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_lcell_comb")
+    (INSTANCE \\create_food1\|num\[2\]\~9\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT datab (115:115:115) (115:115:115))
+        (PORT datac (901:901:901) (901:901:901))
+        (PORT datad (107:107:107) (107:107:107))
+        (IOPATH datab combout (175:175:175) (175:175:175))
+        (IOPATH datac combout (107:107:107) (107:107:107))
+        (IOPATH datad combout (59:59:59) (59:59:59))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_lcell_comb")
+    (INSTANCE \\create_food1\|num\[2\]\~11\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT datac (298:298:298) (298:298:298))
+        (PORT datad (194:194:194) (194:194:194))
+        (IOPATH datac combout (107:107:107) (107:107:107))
         (IOPATH datad combout (59:59:59) (59:59:59))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneii_lcell_ff")
-    (INSTANCE \\create_food1\|rand_temp\[1\]\\)
+    (INSTANCE \\create_food1\|num\[2\]\~_emulated\\)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1036:1036:1036) (1036:1036:1036))
+        (PORT clk (1037:1037:1037) (1037:1037:1037))
         (PORT datain (42:42:42) (42:42:42))
+        (PORT aclr (1207:1207:1207) (1207:1207:1207))
         (IOPATH (posedge clk) regout (141:141:141) (141:141:141))
+        (IOPATH (posedge aclr) regout (133:133:133) (133:133:133))
       )
     )
     (TIMINGCHECK
@@ -113,51 +198,57 @@
     )
   )
   (CELL
-    (CELLTYPE "cycloneii_lcell_ff")
-    (INSTANCE \\create_food1\|rand_temp\[2\]\\)
+    (CELLTYPE "cycloneii_lcell_comb")
+    (INSTANCE \\create_food1\|num\[2\]\~10\\)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1036:1036:1036) (1036:1036:1036))
-        (PORT sdata (341:341:341) (341:341:341))
-        (IOPATH (posedge clk) regout (141:141:141) (141:141:141))
+        (PORT dataa (296:296:296) (296:296:296))
+        (PORT datab (284:284:284) (284:284:284))
+        (PORT datac (156:156:156) (156:156:156))
+        (PORT datad (188:188:188) (188:188:188))
+        (IOPATH dataa combout (180:180:180) (180:180:180))
+        (IOPATH datab combout (175:175:175) (175:175:175))
+        (IOPATH datac combout (107:107:107) (107:107:107))
+        (IOPATH datad combout (59:59:59) (59:59:59))
       )
-    )
-    (TIMINGCHECK
-      (HOLD sdata (posedge clk) (152:152:152))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneii_lcell_ff")
-    (INSTANCE \\create_food1\|rand_temp\[3\]\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1036:1036:1036) (1036:1036:1036))
-        (PORT sdata (340:340:340) (340:340:340))
-        (IOPATH (posedge clk) regout (141:141:141) (141:141:141))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD sdata (posedge clk) (152:152:152))
     )
   )
   (CELL
     (CELLTYPE "cycloneii_lcell_comb")
-    (INSTANCE \\create_food1\|rand_temp\[4\]\~feeder\\)
+    (INSTANCE \\create_food1\|num\[3\]\~13\\)
     (DELAY
       (ABSOLUTE
-        (PORT datad (151:151:151) (151:151:151))
+        (PORT dataa (125:125:125) (125:125:125))
+        (PORT datac (902:902:902) (902:902:902))
+        (PORT datad (110:110:110) (110:110:110))
+        (IOPATH dataa combout (180:180:180) (180:180:180))
+        (IOPATH datac combout (107:107:107) (107:107:107))
+        (IOPATH datad combout (59:59:59) (59:59:59))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_lcell_comb")
+    (INSTANCE \\create_food1\|num\[3\]\~15\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT datab (191:191:191) (191:191:191))
+        (PORT datad (110:110:110) (110:110:110))
+        (IOPATH datab combout (175:175:175) (175:175:175))
         (IOPATH datad combout (59:59:59) (59:59:59))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneii_lcell_ff")
-    (INSTANCE \\create_food1\|rand_temp\[4\]\\)
+    (INSTANCE \\create_food1\|num\[3\]\~_emulated\\)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1036:1036:1036) (1036:1036:1036))
+        (PORT clk (1037:1037:1037) (1037:1037:1037))
         (PORT datain (42:42:42) (42:42:42))
+        (PORT aclr (1207:1207:1207) (1207:1207:1207))
         (IOPATH (posedge clk) regout (141:141:141) (141:141:141))
+        (IOPATH (posedge aclr) regout (133:133:133) (133:133:133))
       )
     )
     (TIMINGCHECK
@@ -166,26 +257,134 @@
   )
   (CELL
     (CELLTYPE "cycloneii_lcell_comb")
-    (INSTANCE \\create_food1\|rand_temp\[5\]\~0\\)
+    (INSTANCE \\create_food1\|num\[3\]\~14\\)
     (DELAY
       (ABSOLUTE
-        (PORT datad (157:157:157) (157:157:157))
-        (IOPATH datad combout (79:79:79) (79:79:79))
+        (PORT dataa (295:295:295) (295:295:295))
+        (PORT datab (286:286:286) (286:286:286))
+        (PORT datac (121:121:121) (121:121:121))
+        (PORT datad (155:155:155) (155:155:155))
+        (IOPATH dataa combout (180:180:180) (180:180:180))
+        (IOPATH datab combout (175:175:175) (175:175:175))
+        (IOPATH datac combout (107:107:107) (107:107:107))
+        (IOPATH datad combout (59:59:59) (59:59:59))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_lcell_comb")
+    (INSTANCE \\create_food1\|num\[4\]\~17\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT datab (113:113:113) (113:113:113))
+        (PORT datac (900:900:900) (900:900:900))
+        (PORT datad (177:177:177) (177:177:177))
+        (IOPATH datab combout (175:175:175) (175:175:175))
+        (IOPATH datac combout (107:107:107) (107:107:107))
+        (IOPATH datad combout (59:59:59) (59:59:59))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_lcell_comb")
+    (INSTANCE \\create_food1\|num\[4\]\~19\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT datac (114:114:114) (114:114:114))
+        (PORT datad (114:114:114) (114:114:114))
+        (IOPATH datac combout (107:107:107) (107:107:107))
+        (IOPATH datad combout (59:59:59) (59:59:59))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneii_lcell_ff")
-    (INSTANCE \\create_food1\|rand_temp\[5\]\\)
+    (INSTANCE \\create_food1\|num\[4\]\~_emulated\\)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1036:1036:1036) (1036:1036:1036))
+        (PORT clk (1037:1037:1037) (1037:1037:1037))
         (PORT datain (42:42:42) (42:42:42))
+        (PORT aclr (1207:1207:1207) (1207:1207:1207))
         (IOPATH (posedge clk) regout (141:141:141) (141:141:141))
+        (IOPATH (posedge aclr) regout (133:133:133) (133:133:133))
       )
     )
     (TIMINGCHECK
       (HOLD datain (posedge clk) (152:152:152))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_lcell_comb")
+    (INSTANCE \\create_food1\|num\[4\]\~18\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (297:297:297) (297:297:297))
+        (PORT datab (115:115:115) (115:115:115))
+        (PORT datac (159:159:159) (159:159:159))
+        (PORT datad (114:114:114) (114:114:114))
+        (IOPATH dataa combout (180:180:180) (180:180:180))
+        (IOPATH datab combout (175:175:175) (175:175:175))
+        (IOPATH datac combout (107:107:107) (107:107:107))
+        (IOPATH datad combout (59:59:59) (59:59:59))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_lcell_comb")
+    (INSTANCE \\create_food1\|num\[5\]\~21\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (124:124:124) (124:124:124))
+        (PORT datac (903:903:903) (903:903:903))
+        (PORT datad (110:110:110) (110:110:110))
+        (IOPATH dataa combout (180:180:180) (180:180:180))
+        (IOPATH datac combout (107:107:107) (107:107:107))
+        (IOPATH datad combout (59:59:59) (59:59:59))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_lcell_comb")
+    (INSTANCE \\create_food1\|num\[5\]\~23\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT datac (124:124:124) (124:124:124))
+        (PORT datad (194:194:194) (194:194:194))
+        (IOPATH datac combout (107:107:107) (107:107:107))
+        (IOPATH datad combout (59:59:59) (59:59:59))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_lcell_ff")
+    (INSTANCE \\create_food1\|num\[5\]\~_emulated\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT clk (1037:1037:1037) (1037:1037:1037))
+        (PORT datain (42:42:42) (42:42:42))
+        (PORT aclr (1207:1207:1207) (1207:1207:1207))
+        (IOPATH (posedge clk) regout (141:141:141) (141:141:141))
+        (IOPATH (posedge aclr) regout (133:133:133) (133:133:133))
+      )
+    )
+    (TIMINGCHECK
+      (HOLD datain (posedge clk) (152:152:152))
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_lcell_comb")
+    (INSTANCE \\create_food1\|num\[5\]\~22\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT dataa (296:296:296) (296:296:296))
+        (PORT datab (281:281:281) (281:281:281))
+        (PORT datac (122:122:122) (122:122:122))
+        (PORT datad (147:147:147) (147:147:147))
+        (IOPATH dataa combout (180:180:180) (180:180:180))
+        (IOPATH datab combout (175:175:175) (175:175:175))
+        (IOPATH datac combout (107:107:107) (107:107:107))
+        (IOPATH datad combout (59:59:59) (59:59:59))
+      )
     )
   )
   (CELL
@@ -193,21 +392,49 @@
     (INSTANCE \\create_food1\|temp\~0\\)
     (DELAY
       (ABSOLUTE
-        (PORT datac (154:154:154) (154:154:154))
-        (PORT datad (157:157:157) (157:157:157))
-        (IOPATH datac combout (110:110:110) (110:110:110))
+        (PORT datab (198:198:198) (198:198:198))
+        (PORT datad (189:189:189) (189:189:189))
+        (IOPATH datab combout (175:175:175) (175:175:175))
+        (IOPATH datad combout (59:59:59) (59:59:59))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_lcell_comb")
+    (INSTANCE \\create_food1\|num\[0\]\~1\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT datab (112:112:112) (112:112:112))
+        (PORT datac (900:900:900) (900:900:900))
+        (PORT datad (109:109:109) (109:109:109))
+        (IOPATH datab combout (175:175:175) (175:175:175))
+        (IOPATH datac combout (107:107:107) (107:107:107))
+        (IOPATH datad combout (59:59:59) (59:59:59))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_lcell_comb")
+    (INSTANCE \\create_food1\|num\[0\]\~3\\)
+    (DELAY
+      (ABSOLUTE
+        (PORT datac (113:113:113) (113:113:113))
+        (PORT datad (111:111:111) (111:111:111))
+        (IOPATH datac combout (107:107:107) (107:107:107))
         (IOPATH datad combout (59:59:59) (59:59:59))
       )
     )
   )
   (CELL
     (CELLTYPE "cycloneii_lcell_ff")
-    (INSTANCE \\create_food1\|num\[0\]\\)
+    (INSTANCE \\create_food1\|num\[0\]\~_emulated\\)
     (DELAY
       (ABSOLUTE
-        (PORT clk (1036:1036:1036) (1036:1036:1036))
+        (PORT clk (1038:1038:1038) (1038:1038:1038))
         (PORT datain (42:42:42) (42:42:42))
+        (PORT aclr (1209:1209:1209) (1209:1209:1209))
         (IOPATH (posedge clk) regout (141:141:141) (141:141:141))
+        (IOPATH (posedge aclr) regout (133:133:133) (133:133:133))
       )
     )
     (TIMINGCHECK
@@ -216,102 +443,18 @@
   )
   (CELL
     (CELLTYPE "cycloneii_lcell_comb")
-    (INSTANCE \\create_food1\|num\[1\]\~feeder\\)
+    (INSTANCE \\create_food1\|num\[0\]\~2\\)
     (DELAY
       (ABSOLUTE
-        (PORT datad (155:155:155) (155:155:155))
-        (IOPATH datad combout (59:59:59) (59:59:59))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneii_lcell_ff")
-    (INSTANCE \\create_food1\|num\[1\]\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1036:1036:1036) (1036:1036:1036))
-        (PORT datain (42:42:42) (42:42:42))
-        (IOPATH (posedge clk) regout (141:141:141) (141:141:141))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD datain (posedge clk) (152:152:152))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneii_lcell_ff")
-    (INSTANCE \\create_food1\|num\[2\]\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1036:1036:1036) (1036:1036:1036))
-        (PORT sdata (340:340:340) (340:340:340))
-        (IOPATH (posedge clk) regout (141:141:141) (141:141:141))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD sdata (posedge clk) (152:152:152))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneii_lcell_ff")
-    (INSTANCE \\create_food1\|num\[3\]\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1036:1036:1036) (1036:1036:1036))
-        (PORT sdata (343:343:343) (343:343:343))
-        (IOPATH (posedge clk) regout (141:141:141) (141:141:141))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD sdata (posedge clk) (152:152:152))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneii_lcell_comb")
-    (INSTANCE \\create_food1\|num\[4\]\~feeder\\)
-    (DELAY
-      (ABSOLUTE
+        (PORT dataa (119:119:119) (119:119:119))
+        (PORT datab (114:114:114) (114:114:114))
+        (PORT datac (378:378:378) (378:378:378))
         (PORT datad (153:153:153) (153:153:153))
+        (IOPATH dataa combout (180:180:180) (180:180:180))
+        (IOPATH datab combout (175:175:175) (175:175:175))
+        (IOPATH datac combout (107:107:107) (107:107:107))
         (IOPATH datad combout (59:59:59) (59:59:59))
       )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneii_lcell_ff")
-    (INSTANCE \\create_food1\|num\[4\]\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1036:1036:1036) (1036:1036:1036))
-        (PORT datain (42:42:42) (42:42:42))
-        (IOPATH (posedge clk) regout (141:141:141) (141:141:141))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD datain (posedge clk) (152:152:152))
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneii_lcell_comb")
-    (INSTANCE \\create_food1\|num\[5\]\~feeder\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT datad (159:159:159) (159:159:159))
-        (IOPATH datad combout (59:59:59) (59:59:59))
-      )
-    )
-  )
-  (CELL
-    (CELLTYPE "cycloneii_lcell_ff")
-    (INSTANCE \\create_food1\|num\[5\]\\)
-    (DELAY
-      (ABSOLUTE
-        (PORT clk (1036:1036:1036) (1036:1036:1036))
-        (PORT datain (42:42:42) (42:42:42))
-        (IOPATH (posedge clk) regout (141:141:141) (141:141:141))
-      )
-    )
-    (TIMINGCHECK
-      (HOLD datain (posedge clk) (152:152:152))
     )
   )
   (CELL
@@ -319,8 +462,8 @@
     (INSTANCE \\new_food\[0\]\~I\\.asynch_inst)
     (DELAY
       (ABSOLUTE
-        (PORT datain (260:260:260) (260:260:260))
-        (IOPATH datain padio (1418:1418:1418) (1418:1418:1418))
+        (PORT datain (430:430:430) (430:430:430))
+        (IOPATH datain padio (1408:1408:1408) (1408:1408:1408))
       )
     )
   )
@@ -329,8 +472,8 @@
     (INSTANCE \\new_food\[1\]\~I\\.asynch_inst)
     (DELAY
       (ABSOLUTE
-        (PORT datain (378:378:378) (378:378:378))
-        (IOPATH datain padio (1518:1518:1518) (1518:1518:1518))
+        (PORT datain (312:312:312) (312:312:312))
+        (IOPATH datain padio (1378:1378:1378) (1378:1378:1378))
       )
     )
   )
@@ -339,8 +482,8 @@
     (INSTANCE \\new_food\[2\]\~I\\.asynch_inst)
     (DELAY
       (ABSOLUTE
-        (PORT datain (260:260:260) (260:260:260))
-        (IOPATH datain padio (1408:1408:1408) (1408:1408:1408))
+        (PORT datain (349:349:349) (349:349:349))
+        (IOPATH datain padio (1378:1378:1378) (1378:1378:1378))
       )
     )
   )
@@ -349,8 +492,8 @@
     (INSTANCE \\new_food\[3\]\~I\\.asynch_inst)
     (DELAY
       (ABSOLUTE
-        (PORT datain (264:264:264) (264:264:264))
-        (IOPATH datain padio (1408:1408:1408) (1408:1408:1408))
+        (PORT datain (224:224:224) (224:224:224))
+        (IOPATH datain padio (1378:1378:1378) (1378:1378:1378))
       )
     )
   )
@@ -359,8 +502,8 @@
     (INSTANCE \\new_food\[4\]\~I\\.asynch_inst)
     (DELAY
       (ABSOLUTE
-        (PORT datain (389:389:389) (389:389:389))
-        (IOPATH datain padio (1418:1418:1418) (1418:1418:1418))
+        (PORT datain (309:309:309) (309:309:309))
+        (IOPATH datain padio (1408:1408:1408) (1408:1408:1408))
       )
     )
   )
@@ -369,8 +512,17 @@
     (INSTANCE \\new_food\[5\]\~I\\.asynch_inst)
     (DELAY
       (ABSOLUTE
-        (PORT datain (260:260:260) (260:260:260))
-        (IOPATH datain padio (1418:1418:1418) (1418:1418:1418))
+        (PORT datain (218:218:218) (218:218:218))
+        (IOPATH datain padio (1408:1408:1408) (1408:1408:1408))
+      )
+    )
+  )
+  (CELL
+    (CELLTYPE "cycloneii_asynch_io")
+    (INSTANCE \\new_food\[6\]\~I\\.asynch_inst)
+    (DELAY
+      (ABSOLUTE
+        (IOPATH datain padio (1388:1388:1388) (1388:1388:1388))
       )
     )
   )

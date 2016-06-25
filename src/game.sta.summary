@@ -3,11 +3,11 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow Model Setup 'create_food:food1|num[0]'
-Slack : -0.713
-TNS   : -0.932
+Slack : -0.715
+TNS   : -1.348
 
 Type  : Slow Model Hold 'create_food:food1|num[0]'
-Slack : 0.625
+Slack : 0.633
 TNS   : 0.000
 
 Type  : Slow Model Minimum Pulse Width 'create_food:food1|num[0]'
@@ -15,11 +15,11 @@ Slack : -0.611
 TNS   : -13.442
 
 Type  : Fast Model Setup 'create_food:food1|num[0]'
-Slack : 0.334
+Slack : 0.326
 TNS   : 0.000
 
 Type  : Fast Model Hold 'create_food:food1|num[0]'
-Slack : 0.243
+Slack : 0.247
 TNS   : 0.000
 
 Type  : Fast Model Minimum Pulse Width 'create_food:food1|num[0]'

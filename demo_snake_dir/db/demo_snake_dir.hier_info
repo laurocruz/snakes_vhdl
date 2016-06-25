@@ -5,7 +5,8 @@ snake_turn[1] => snake_dir:snake_dir1.snake_turn[1]
 
 
 |demo_snake_dir|snake_dir:snake_dir1
-reset => ~NO_FANOUT~
+reset => dir[0]$latch.PRESET
+reset => dir[1]$latch.PRESET
 snake_turn[0] => dir[1].OUTPUTSELECT
 snake_turn[0] => dir[0].OUTPUTSELECT
 snake_turn[0] => dir[0].IN0
