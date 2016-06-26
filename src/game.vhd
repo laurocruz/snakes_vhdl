@@ -1,6 +1,5 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
-USE ieee.math_real.all;
 
 LIBRARY snake_lib;
 USE snake_lib.snake_pack.all;
@@ -67,13 +66,13 @@ BEGIN
 					snake_size => snake_size_s,
 					eaten => eaten);
 
-	colision1: colision
-		GENERIC MAP(N,M)
-		PORT MAP(snake_body => snake_body_s,
-					dir => dir_s,
-					reset => reset or lost_s,
-					gmap => gmap_s,
-					lost => lost_s);
+	--colision1: colision
+	--	GENERIC MAP(N,M)
+	--	PORT MAP(snake_body => snake_body_s,
+	--				dir => dir_s,
+	--				reset => reset or lost_s,
+	--				gmap => gmap_s,
+	--				lost => lost_s);
 
 	snake_size <= snake_size_s;
 	gmap <= gmap_s;

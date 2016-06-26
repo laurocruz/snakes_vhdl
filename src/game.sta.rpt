@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for game
-Sat Jun 25 20:18:02 2016
+Sat Jun 25 20:50:38 2016
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -16,30 +16,19 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   8. Slow Model Recovery Summary
   9. Slow Model Removal Summary
  10. Slow Model Minimum Pulse Width Summary
- 11. Slow Model Setup: 'create_food:food1|num[0]'
- 12. Slow Model Hold: 'create_food:food1|num[0]'
- 13. Slow Model Minimum Pulse Width: 'create_food:food1|num[0]'
- 14. Clock to Output Times
- 15. Minimum Clock to Output Times
- 16. Fast Model Setup Summary
- 17. Fast Model Hold Summary
- 18. Fast Model Recovery Summary
- 19. Fast Model Removal Summary
- 20. Fast Model Minimum Pulse Width Summary
- 21. Fast Model Setup: 'create_food:food1|num[0]'
- 22. Fast Model Hold: 'create_food:food1|num[0]'
- 23. Fast Model Minimum Pulse Width: 'create_food:food1|num[0]'
- 24. Clock to Output Times
- 25. Minimum Clock to Output Times
- 26. Multicorner Timing Analysis Summary
- 27. Clock to Output Times
- 28. Minimum Clock to Output Times
- 29. Setup Transfers
- 30. Hold Transfers
- 31. Report TCCS
- 32. Report RSKM
- 33. Unconstrained Paths
- 34. TimeQuest Timing Analyzer Messages
+ 11. Slow Model Datasheet Report
+ 12. Fast Model Setup Summary
+ 13. Fast Model Hold Summary
+ 14. Fast Model Recovery Summary
+ 15. Fast Model Removal Summary
+ 16. Fast Model Minimum Pulse Width Summary
+ 17. Fast Model Datasheet Report
+ 18. Multicorner Timing Analysis Summary
+ 19. Clock Transfers
+ 20. Report TCCS
+ 21. Report RSKM
+ 22. Unconstrained Paths
+ 23. TimeQuest Timing Analyzer Messages
 
 
 
@@ -86,41 +75,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Clocks                                                                                                                                                                                                             ;
-+--------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------------+
-; Clock Name               ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                      ;
-+--------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------------+
-; create_food:food1|num[0] ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { create_food:food1|num[0] } ;
-+--------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------------------------+
+----------
+; Clocks ;
+----------
+No clocks to report.
 
 
-+-----------------------------------------------------------------------------------------------------------------+
-; Slow Model Fmax Summary                                                                                         ;
-+------------+-----------------+--------------------------+-------------------------------------------------------+
-; Fmax       ; Restricted Fmax ; Clock Name               ; Note                                                  ;
-+------------+-----------------+--------------------------+-------------------------------------------------------+
-; 583.09 MHz ; 450.05 MHz      ; create_food:food1|num[0] ; limit due to high minimum pulse width violation (tch) ;
-+------------+-----------------+--------------------------+-------------------------------------------------------+
-This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+---------------------------
+; Slow Model Fmax Summary ;
+---------------------------
+No paths to report.
 
 
-+---------------------------------------------------+
-; Slow Model Setup Summary                          ;
-+--------------------------+--------+---------------+
-; Clock                    ; Slack  ; End Point TNS ;
-+--------------------------+--------+---------------+
-; create_food:food1|num[0] ; -0.715 ; -1.348        ;
-+--------------------------+--------+---------------+
+----------------------------
+; Slow Model Setup Summary ;
+----------------------------
+No paths to report.
 
 
-+--------------------------------------------------+
-; Slow Model Hold Summary                          ;
-+--------------------------+-------+---------------+
-; Clock                    ; Slack ; End Point TNS ;
-+--------------------------+-------+---------------+
-; create_food:food1|num[0] ; 0.633 ; 0.000         ;
-+--------------------------+-------+---------------+
+---------------------------
+; Slow Model Hold Summary ;
+---------------------------
+No paths to report.
 
 
 -------------------------------
@@ -135,169 +111,28 @@ No paths to report.
 No paths to report.
 
 
-+---------------------------------------------------+
-; Slow Model Minimum Pulse Width Summary            ;
-+--------------------------+--------+---------------+
-; Clock                    ; Slack  ; End Point TNS ;
-+--------------------------+--------+---------------+
-; create_food:food1|num[0] ; -0.611 ; -13.442       ;
-+--------------------------+--------+---------------+
+------------------------------------------
+; Slow Model Minimum Pulse Width Summary ;
+------------------------------------------
+No paths to report.
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Slow Model Setup: 'create_food:food1|num[0]'                                                                                                                            ;
-+--------+--------------------------------+--------------------------------+--------------------------+--------------------------+--------------+------------+------------+
-; Slack  ; From Node                      ; To Node                        ; Launch Clock             ; Latch Clock              ; Relationship ; Clock Skew ; Data Delay ;
-+--------+--------------------------------+--------------------------------+--------------------------+--------------------------+--------------+------------+------------+
-; -0.715 ; create_food:food1|rand_temp[5] ; create_food:food1|rand_temp[0] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 1.753      ;
-; -0.363 ; create_food:food1|rand_temp[4] ; create_food:food1|rand_temp[0] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 1.401      ;
-; -0.262 ; create_food:food1|rand_temp[4] ; create_food:food1|rand_temp[5] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 1.300      ;
-; -0.255 ; create_food:food1|rand_temp[4] ; create_food:food1|num[5]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 1.293      ;
-; -0.030 ; create_food:food1|rand_temp[1] ; create_food:food1|rand_temp[2] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 1.068      ;
-; -0.029 ; create_food:food1|rand_temp[0] ; create_food:food1|num[1]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 1.067      ;
-; -0.029 ; create_food:food1|rand_temp[1] ; create_food:food1|num[2]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 1.067      ;
-; -0.028 ; create_food:food1|rand_temp[0] ; create_food:food1|rand_temp[1] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 1.066      ;
-; 0.116  ; create_food:food1|rand_temp[2] ; create_food:food1|num[3]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.922      ;
-; 0.117  ; create_food:food1|rand_temp[3] ; create_food:food1|num[4]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.921      ;
-; 0.117  ; create_food:food1|rand_temp[3] ; create_food:food1|rand_temp[4] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.921      ;
-; 0.119  ; create_food:food1|rand_temp[2] ; create_food:food1|rand_temp[3] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.919      ;
-+--------+--------------------------------+--------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+-------------------------------
+; Slow Model Datasheet Report ;
+-------------------------------
+Nothing to report.
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Slow Model Hold: 'create_food:food1|num[0]'                                                                                                                            ;
-+-------+--------------------------------+--------------------------------+--------------------------+--------------------------+--------------+------------+------------+
-; Slack ; From Node                      ; To Node                        ; Launch Clock             ; Latch Clock              ; Relationship ; Clock Skew ; Data Delay ;
-+-------+--------------------------------+--------------------------------+--------------------------+--------------------------+--------------+------------+------------+
-; 0.633 ; create_food:food1|rand_temp[2] ; create_food:food1|rand_temp[3] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.919      ;
-; 0.635 ; create_food:food1|rand_temp[3] ; create_food:food1|num[4]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.921      ;
-; 0.635 ; create_food:food1|rand_temp[3] ; create_food:food1|rand_temp[4] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.921      ;
-; 0.636 ; create_food:food1|rand_temp[2] ; create_food:food1|num[3]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.922      ;
-; 0.780 ; create_food:food1|rand_temp[0] ; create_food:food1|rand_temp[1] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 1.066      ;
-; 0.781 ; create_food:food1|rand_temp[0] ; create_food:food1|num[1]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 1.067      ;
-; 0.781 ; create_food:food1|rand_temp[1] ; create_food:food1|num[2]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 1.067      ;
-; 0.782 ; create_food:food1|rand_temp[1] ; create_food:food1|rand_temp[2] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 1.068      ;
-; 1.007 ; create_food:food1|rand_temp[4] ; create_food:food1|num[5]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 1.293      ;
-; 1.014 ; create_food:food1|rand_temp[4] ; create_food:food1|rand_temp[5] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 1.300      ;
-; 1.115 ; create_food:food1|rand_temp[4] ; create_food:food1|rand_temp[0] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 1.401      ;
-; 1.467 ; create_food:food1|rand_temp[5] ; create_food:food1|rand_temp[0] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 1.753      ;
-+-------+--------------------------------+--------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+----------------------------
+; Fast Model Setup Summary ;
+----------------------------
+No paths to report.
 
 
-+------------------------------------------------------------------------------------------------------------------------------------+
-; Slow Model Minimum Pulse Width: 'create_food:food1|num[0]'                                                                         ;
-+--------+--------------+----------------+------------------+--------------------------+------------+--------------------------------+
-; Slack  ; Actual Width ; Required Width ; Type             ; Clock                    ; Clock Edge ; Target                         ;
-+--------+--------------+----------------+------------------+--------------------------+------------+--------------------------------+
-; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[1]       ;
-; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[1]       ;
-; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[2]       ;
-; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[2]       ;
-; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[3]       ;
-; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[3]       ;
-; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[4]       ;
-; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[4]       ;
-; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[5]       ;
-; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[5]       ;
-; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[0] ;
-; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[0] ;
-; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[1] ;
-; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[1] ;
-; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[2] ;
-; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[2] ;
-; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[3] ;
-; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[3] ;
-; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[4] ;
-; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[4] ;
-; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[5] ;
-; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[5] ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|num[0]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|num[0]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|num[0]|regout            ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|num[0]|regout            ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|num[1]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|num[1]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|num[2]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|num[2]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|num[3]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|num[3]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|num[4]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|num[4]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|num[5]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|num[5]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[0]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[0]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[1]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[1]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[2]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[2]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[3]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[3]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[4]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[4]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[5]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[5]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; size1|Equal0|combout           ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; size1|Equal0|combout           ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; size1|Equal0|datad             ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; size1|Equal0|datad             ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; size1|Equal0~clkctrl|inclk[0]  ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; size1|Equal0~clkctrl|inclk[0]  ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; size1|Equal0~clkctrl|outclk    ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; size1|Equal0~clkctrl|outclk    ;
-+--------+--------------+----------------+------------------+--------------------------+------------+--------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------+
-; Clock to Output Times                                                                           ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-; Data Port    ; Clock Port               ; Rise  ; Fall  ; Clock Edge ; Clock Reference          ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-; food_pos[*]  ; create_food:food1|num[0] ; 7.059 ; 7.059 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[0] ; create_food:food1|num[0] ; 3.728 ;       ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[1] ; create_food:food1|num[0] ; 6.966 ; 6.966 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[2] ; create_food:food1|num[0] ; 6.736 ; 6.736 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[3] ; create_food:food1|num[0] ; 7.059 ; 7.059 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[4] ; create_food:food1|num[0] ; 6.706 ; 6.706 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[5] ; create_food:food1|num[0] ; 6.739 ; 6.739 ; Rise       ; create_food:food1|num[0] ;
-; food_pos[*]  ; create_food:food1|num[0] ;       ; 3.728 ; Fall       ; create_food:food1|num[0] ;
-;  food_pos[0] ; create_food:food1|num[0] ;       ; 3.728 ; Fall       ; create_food:food1|num[0] ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-
-
-+-------------------------------------------------------------------------------------------------+
-; Minimum Clock to Output Times                                                                   ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-; Data Port    ; Clock Port               ; Rise  ; Fall  ; Clock Edge ; Clock Reference          ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-; food_pos[*]  ; create_food:food1|num[0] ; 3.728 ; 6.706 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[0] ; create_food:food1|num[0] ; 3.728 ;       ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[1] ; create_food:food1|num[0] ; 6.966 ; 6.966 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[2] ; create_food:food1|num[0] ; 6.736 ; 6.736 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[3] ; create_food:food1|num[0] ; 7.059 ; 7.059 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[4] ; create_food:food1|num[0] ; 6.706 ; 6.706 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[5] ; create_food:food1|num[0] ; 6.739 ; 6.739 ; Rise       ; create_food:food1|num[0] ;
-; food_pos[*]  ; create_food:food1|num[0] ;       ; 3.728 ; Fall       ; create_food:food1|num[0] ;
-;  food_pos[0] ; create_food:food1|num[0] ;       ; 3.728 ; Fall       ; create_food:food1|num[0] ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-
-
-+--------------------------------------------------+
-; Fast Model Setup Summary                         ;
-+--------------------------+-------+---------------+
-; Clock                    ; Slack ; End Point TNS ;
-+--------------------------+-------+---------------+
-; create_food:food1|num[0] ; 0.326 ; 0.000         ;
-+--------------------------+-------+---------------+
-
-
-+--------------------------------------------------+
-; Fast Model Hold Summary                          ;
-+--------------------------+-------+---------------+
-; Clock                    ; Slack ; End Point TNS ;
-+--------------------------+-------+---------------+
-; create_food:food1|num[0] ; 0.247 ; 0.000         ;
-+--------------------------+-------+---------------+
+---------------------------
+; Fast Model Hold Summary ;
+---------------------------
+No paths to report.
 
 
 -------------------------------
@@ -312,217 +147,32 @@ No paths to report.
 No paths to report.
 
 
-+---------------------------------------------------+
-; Fast Model Minimum Pulse Width Summary            ;
-+--------------------------+--------+---------------+
-; Clock                    ; Slack  ; End Point TNS ;
-+--------------------------+--------+---------------+
-; create_food:food1|num[0] ; -0.500 ; -11.000       ;
-+--------------------------+--------+---------------+
+------------------------------------------
+; Fast Model Minimum Pulse Width Summary ;
+------------------------------------------
+No paths to report.
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fast Model Setup: 'create_food:food1|num[0]'                                                                                                                           ;
-+-------+--------------------------------+--------------------------------+--------------------------+--------------------------+--------------+------------+------------+
-; Slack ; From Node                      ; To Node                        ; Launch Clock             ; Latch Clock              ; Relationship ; Clock Skew ; Data Delay ;
-+-------+--------------------------------+--------------------------------+--------------------------+--------------------------+--------------+------------+------------+
-; 0.326 ; create_food:food1|rand_temp[5] ; create_food:food1|rand_temp[0] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.706      ;
-; 0.463 ; create_food:food1|rand_temp[4] ; create_food:food1|rand_temp[0] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.569      ;
-; 0.466 ; create_food:food1|rand_temp[4] ; create_food:food1|num[5]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.566      ;
-; 0.500 ; create_food:food1|rand_temp[4] ; create_food:food1|rand_temp[5] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.532      ;
-; 0.543 ; create_food:food1|rand_temp[1] ; create_food:food1|rand_temp[2] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.489      ;
-; 0.544 ; create_food:food1|rand_temp[0] ; create_food:food1|num[1]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.488      ;
-; 0.544 ; create_food:food1|rand_temp[1] ; create_food:food1|num[2]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.488      ;
-; 0.546 ; create_food:food1|rand_temp[0] ; create_food:food1|rand_temp[1] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.486      ;
-; 0.630 ; create_food:food1|rand_temp[2] ; create_food:food1|num[3]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.402      ;
-; 0.631 ; create_food:food1|rand_temp[3] ; create_food:food1|num[4]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.401      ;
-; 0.631 ; create_food:food1|rand_temp[3] ; create_food:food1|rand_temp[4] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.401      ;
-; 0.633 ; create_food:food1|rand_temp[2] ; create_food:food1|rand_temp[3] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 1.000        ; 0.000      ; 0.399      ;
-+-------+--------------------------------+--------------------------------+--------------------------+--------------------------+--------------+------------+------------+
+-------------------------------
+; Fast Model Datasheet Report ;
+-------------------------------
+Nothing to report.
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fast Model Hold: 'create_food:food1|num[0]'                                                                                                                            ;
-+-------+--------------------------------+--------------------------------+--------------------------+--------------------------+--------------+------------+------------+
-; Slack ; From Node                      ; To Node                        ; Launch Clock             ; Latch Clock              ; Relationship ; Clock Skew ; Data Delay ;
-+-------+--------------------------------+--------------------------------+--------------------------+--------------------------+--------------+------------+------------+
-; 0.247 ; create_food:food1|rand_temp[2] ; create_food:food1|rand_temp[3] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.399      ;
-; 0.249 ; create_food:food1|rand_temp[3] ; create_food:food1|num[4]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.401      ;
-; 0.249 ; create_food:food1|rand_temp[3] ; create_food:food1|rand_temp[4] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.401      ;
-; 0.250 ; create_food:food1|rand_temp[2] ; create_food:food1|num[3]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.402      ;
-; 0.334 ; create_food:food1|rand_temp[0] ; create_food:food1|rand_temp[1] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.486      ;
-; 0.336 ; create_food:food1|rand_temp[0] ; create_food:food1|num[1]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.488      ;
-; 0.336 ; create_food:food1|rand_temp[1] ; create_food:food1|num[2]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.488      ;
-; 0.337 ; create_food:food1|rand_temp[1] ; create_food:food1|rand_temp[2] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.489      ;
-; 0.380 ; create_food:food1|rand_temp[4] ; create_food:food1|rand_temp[5] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.532      ;
-; 0.414 ; create_food:food1|rand_temp[4] ; create_food:food1|num[5]       ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.566      ;
-; 0.417 ; create_food:food1|rand_temp[4] ; create_food:food1|rand_temp[0] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.569      ;
-; 0.554 ; create_food:food1|rand_temp[5] ; create_food:food1|rand_temp[0] ; create_food:food1|num[0] ; create_food:food1|num[0] ; 0.000        ; 0.000      ; 0.706      ;
-+-------+--------------------------------+--------------------------------+--------------------------+--------------------------+--------------+------------+------------+
++----------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                        ;
++------------------+-------+------+----------+---------+---------------------+
+; Clock            ; Setup ; Hold ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+-------+------+----------+---------+---------------------+
+; Worst-case Slack ; N/A   ; N/A  ; N/A      ; N/A     ; N/A                 ;
+; Design-wide TNS  ; 0.0   ; 0.0  ; 0.0      ; 0.0     ; 0.0                 ;
++------------------+-------+------+----------+---------+---------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------+
-; Fast Model Minimum Pulse Width: 'create_food:food1|num[0]'                                                                         ;
-+--------+--------------+----------------+------------------+--------------------------+------------+--------------------------------+
-; Slack  ; Actual Width ; Required Width ; Type             ; Clock                    ; Clock Edge ; Target                         ;
-+--------+--------------+----------------+------------------+--------------------------+------------+--------------------------------+
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[1]       ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[1]       ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[2]       ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[2]       ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[3]       ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[3]       ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[4]       ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[4]       ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[5]       ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|num[5]       ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[0] ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[0] ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[1] ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[1] ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[2] ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[2] ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[3] ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[3] ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[4] ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[4] ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[5] ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; create_food:food1|rand_temp[5] ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|num[0]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|num[0]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|num[0]|regout            ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|num[0]|regout            ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|num[1]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|num[1]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|num[2]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|num[2]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|num[3]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|num[3]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|num[4]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|num[4]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|num[5]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|num[5]|clk               ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[0]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[0]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[1]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[1]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[2]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[2]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[3]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[3]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[4]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[4]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[5]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; food1|rand_temp[5]|clk         ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; size1|Equal0|combout           ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; size1|Equal0|combout           ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; size1|Equal0|datad             ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; size1|Equal0|datad             ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; size1|Equal0~clkctrl|inclk[0]  ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; size1|Equal0~clkctrl|inclk[0]  ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; create_food:food1|num[0] ; Rise       ; size1|Equal0~clkctrl|outclk    ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; create_food:food1|num[0] ; Rise       ; size1|Equal0~clkctrl|outclk    ;
-+--------+--------------+----------------+------------------+--------------------------+------------+--------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------+
-; Clock to Output Times                                                                           ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-; Data Port    ; Clock Port               ; Rise  ; Fall  ; Clock Edge ; Clock Reference          ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-; food_pos[*]  ; create_food:food1|num[0] ; 3.643 ; 3.643 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[0] ; create_food:food1|num[0] ; 1.772 ;       ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[1] ; create_food:food1|num[0] ; 3.609 ; 3.609 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[2] ; create_food:food1|num[0] ; 3.530 ; 3.530 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[3] ; create_food:food1|num[0] ; 3.643 ; 3.643 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[4] ; create_food:food1|num[0] ; 3.500 ; 3.500 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[5] ; create_food:food1|num[0] ; 3.522 ; 3.522 ; Rise       ; create_food:food1|num[0] ;
-; food_pos[*]  ; create_food:food1|num[0] ;       ; 1.772 ; Fall       ; create_food:food1|num[0] ;
-;  food_pos[0] ; create_food:food1|num[0] ;       ; 1.772 ; Fall       ; create_food:food1|num[0] ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-
-
-+-------------------------------------------------------------------------------------------------+
-; Minimum Clock to Output Times                                                                   ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-; Data Port    ; Clock Port               ; Rise  ; Fall  ; Clock Edge ; Clock Reference          ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-; food_pos[*]  ; create_food:food1|num[0] ; 1.772 ; 3.500 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[0] ; create_food:food1|num[0] ; 1.772 ;       ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[1] ; create_food:food1|num[0] ; 3.609 ; 3.609 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[2] ; create_food:food1|num[0] ; 3.530 ; 3.530 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[3] ; create_food:food1|num[0] ; 3.643 ; 3.643 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[4] ; create_food:food1|num[0] ; 3.500 ; 3.500 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[5] ; create_food:food1|num[0] ; 3.522 ; 3.522 ; Rise       ; create_food:food1|num[0] ;
-; food_pos[*]  ; create_food:food1|num[0] ;       ; 1.772 ; Fall       ; create_food:food1|num[0] ;
-;  food_pos[0] ; create_food:food1|num[0] ;       ; 1.772 ; Fall       ; create_food:food1|num[0] ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-
-
-+---------------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                                   ;
-+---------------------------+--------+-------+----------+---------+---------------------+
-; Clock                     ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
-+---------------------------+--------+-------+----------+---------+---------------------+
-; Worst-case Slack          ; -0.715 ; 0.247 ; N/A      ; N/A     ; -0.611              ;
-;  create_food:food1|num[0] ; -0.715 ; 0.247 ; N/A      ; N/A     ; -0.611              ;
-; Design-wide TNS           ; -1.348 ; 0.0   ; 0.0      ; 0.0     ; -13.442             ;
-;  create_food:food1|num[0] ; -1.348 ; 0.000 ; N/A      ; N/A     ; -13.442             ;
-+---------------------------+--------+-------+----------+---------+---------------------+
-
-
-+-------------------------------------------------------------------------------------------------+
-; Clock to Output Times                                                                           ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-; Data Port    ; Clock Port               ; Rise  ; Fall  ; Clock Edge ; Clock Reference          ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-; food_pos[*]  ; create_food:food1|num[0] ; 7.059 ; 7.059 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[0] ; create_food:food1|num[0] ; 3.728 ;       ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[1] ; create_food:food1|num[0] ; 6.966 ; 6.966 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[2] ; create_food:food1|num[0] ; 6.736 ; 6.736 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[3] ; create_food:food1|num[0] ; 7.059 ; 7.059 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[4] ; create_food:food1|num[0] ; 6.706 ; 6.706 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[5] ; create_food:food1|num[0] ; 6.739 ; 6.739 ; Rise       ; create_food:food1|num[0] ;
-; food_pos[*]  ; create_food:food1|num[0] ;       ; 3.728 ; Fall       ; create_food:food1|num[0] ;
-;  food_pos[0] ; create_food:food1|num[0] ;       ; 3.728 ; Fall       ; create_food:food1|num[0] ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-
-
-+-------------------------------------------------------------------------------------------------+
-; Minimum Clock to Output Times                                                                   ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-; Data Port    ; Clock Port               ; Rise  ; Fall  ; Clock Edge ; Clock Reference          ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-; food_pos[*]  ; create_food:food1|num[0] ; 1.772 ; 3.500 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[0] ; create_food:food1|num[0] ; 1.772 ;       ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[1] ; create_food:food1|num[0] ; 3.609 ; 3.609 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[2] ; create_food:food1|num[0] ; 3.530 ; 3.530 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[3] ; create_food:food1|num[0] ; 3.643 ; 3.643 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[4] ; create_food:food1|num[0] ; 3.500 ; 3.500 ; Rise       ; create_food:food1|num[0] ;
-;  food_pos[5] ; create_food:food1|num[0] ; 3.522 ; 3.522 ; Rise       ; create_food:food1|num[0] ;
-; food_pos[*]  ; create_food:food1|num[0] ;       ; 1.772 ; Fall       ; create_food:food1|num[0] ;
-;  food_pos[0] ; create_food:food1|num[0] ;       ; 1.772 ; Fall       ; create_food:food1|num[0] ;
-+--------------+--------------------------+-------+-------+------------+--------------------------+
-
-
-+-------------------------------------------------------------------------------------------------+
-; Setup Transfers                                                                                 ;
-+--------------------------+--------------------------+----------+----------+----------+----------+
-; From Clock               ; To Clock                 ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+--------------------------+--------------------------+----------+----------+----------+----------+
-; create_food:food1|num[0] ; create_food:food1|num[0] ; 12       ; 0        ; 0        ; 0        ;
-+--------------------------+--------------------------+----------+----------+----------+----------+
-Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
-
-
-+-------------------------------------------------------------------------------------------------+
-; Hold Transfers                                                                                  ;
-+--------------------------+--------------------------+----------+----------+----------+----------+
-; From Clock               ; To Clock                 ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+--------------------------+--------------------------+----------+----------+----------+----------+
-; create_food:food1|num[0] ; create_food:food1|num[0] ; 12       ; 0        ; 0        ; 0        ;
-+--------------------------+--------------------------+----------+----------+----------+----------+
-Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+-------------------
+; Clock Transfers ;
+-------------------
+Nothing to report.
 
 
 ---------------
@@ -546,8 +196,8 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 0     ; 0    ;
 ; Unconstrained Input Port Paths  ; 0     ; 0    ;
-; Unconstrained Output Ports      ; 6     ; 6    ;
-; Unconstrained Output Port Paths ; 6     ; 6    ;
+; Unconstrained Output Ports      ; 0     ; 0    ;
+; Unconstrained Output Port Paths ; 0     ; 0    ;
 +---------------------------------+-------+------+
 
 
@@ -557,7 +207,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Jun 25 20:18:01 2016
+    Info: Processing started: Sat Jun 25 20:50:38 2016
 Info: Command: quartus_sta game -c game
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -565,51 +215,34 @@ Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'game.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332105): Deriving Clocks
-    Info (332105): create_clock -period 1.000 -name create_food:food1|num[0] create_food:food1|num[0]
-Warning (332191): Clock target create_food:food1|num[0] of clock create_food:food1|num[0] is fed by another target of the same clock.
+Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
+Warning (332068): No clocks defined in design.
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info (332159): No clocks to report
 Info: Analyzing Slow Model
-Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -0.715
-    Info (332119):     Slack End Point TNS Clock 
-    Info (332119): ========= ============= =====================
-    Info (332119):    -0.715        -1.348 create_food:food1|num[0] 
-Info (332146): Worst-case hold slack is 0.633
-    Info (332119):     Slack End Point TNS Clock 
-    Info (332119): ========= ============= =====================
-    Info (332119):     0.633         0.000 create_food:food1|num[0] 
+Info (332140): No fmax paths to report
+Info (332140): No Setup paths to report
+Info (332140): No Hold paths to report
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.611
-    Info (332119):     Slack End Point TNS Clock 
-    Info (332119): ========= ============= =====================
-    Info (332119):    -0.611       -13.442 create_food:food1|num[0] 
+Info (332140): No Minimum Pulse Width paths to report
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info: Analyzing Fast Model
-Warning (332191): Clock target create_food:food1|num[0] of clock create_food:food1|num[0] is fed by another target of the same clock.
-Info (332146): Worst-case setup slack is 0.326
-    Info (332119):     Slack End Point TNS Clock 
-    Info (332119): ========= ============= =====================
-    Info (332119):     0.326         0.000 create_food:food1|num[0] 
-Info (332146): Worst-case hold slack is 0.247
-    Info (332119):     Slack End Point TNS Clock 
-    Info (332119): ========= ============= =====================
-    Info (332119):     0.247         0.000 create_food:food1|num[0] 
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
+Warning (332068): No clocks defined in design.
+Info (332140): No Setup paths to report
+Info (332140): No Hold paths to report
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case minimum pulse width slack is -0.500
-    Info (332119):     Slack End Point TNS Clock 
-    Info (332119): ========= ============= =====================
-    Info (332119):    -0.500       -11.000 create_food:food1|num[0] 
+Info (332140): No Minimum Pulse Width paths to report
 Info (332001): The selected device family is not supported by the report_metastability command.
-Info (332102): Design is not fully constrained for setup requirements
-Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 492 megabytes
-    Info: Processing ended: Sat Jun 25 20:18:02 2016
-    Info: Elapsed time: 00:00:01
+Info (332101): Design is fully constrained for setup requirements
+Info (332101): Design is fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 494 megabytes
+    Info: Processing ended: Sat Jun 25 20:50:38 2016
+    Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:01
 
 
